@@ -18,7 +18,6 @@ the reel deal is a letterboxd clone that lets you rate and review the movies you
 
 ## 3. Use Cases
 
-_This is where we work backwards from the customer and define what our customers would like to do (and why). You may also include use cases for yourselves (as developers), or for the organization providing the product to customers._
 
 1. As a user, I want to be able to create an account on Reel Deal so that I can save my favorite movies and review them.
 
@@ -36,23 +35,23 @@ _This is where we work backwards from the customer and define what our customers
 
 8. As a user, I want to be able to view trailers and posters for movies on Reel Deal so that I can get a better idea of what a film is about before watching it.
 
+9. As a user, I want to be able to connect my ReelDeal account to my social media accounts so that I can share my reviews and ratings with my friends.
 
 ### 4.1. In Scope
 
 * looking at reviews from others people
 * search movies by title director and actor
-* show popular movies to leave reviews on.
-* Adding, updating, deleting, and viewing reviews.
+* show popular movies to leave reviews on
+* Adding, updating, deleting, and viewing reviews
 
 
 ### 4.2. Out of Scope
 
-* following other users .
-
+* following other users 
+* login with socials
 
 # 5. Proposed Architecture Overview
 
-_Describe broadly how you are proposing to solve for the requirements you described in Section 2. This may include class diagram(s) showing what components you are planning to build. You should argue why this architecture (organization of components) is reasonable. That is, why it represents a good data flow and a good separation of concerns. Where applicable, argue why this architecture satisfies the stated requirements._
 
 We will use API Gateway and Lambda to create endpoints that will handle the creation, updating, and retrieval of movies and reviews. 
 
@@ -64,8 +63,6 @@ ReelDeal will also provide a web interface for users. A main page providing a va
 # 6. API
 
 ## 6.1. Public Models
-
-_Define the data models your service will expose in its responses via your *`-Model`* package._
 
 ```
 // Movie 
@@ -96,35 +93,80 @@ _Define the data models your service will expose in its responses via your *`-Mo
     private List<Review> reviews;
 
 
-
 ```
-
+Get All Movies Endpoint
 GET /movies - Retrieve a list of all movies
+if there is no data, will throw NoDataFoundException
+
+Get Movie Endpoint
 GET /movies/{id} - Retrieve a specific movie by its ID
-POST /movies - Create a new movie
+if movie id is not found throw 'MovieNotFoundException'
+
+Create Movie Endpoint
+POST /movies - Accepts post to create a new movie includes title and short description for non null fields 
+if movie contains invalid characters will throw 'InvalidAttributeValueException'
+
+Update Movie Endpoint
 PUT /movies/{id} - Update an existing movie
+Accepts data to Movie 
+if movie is not found throw 'MovieNotFoundException'
+
+Delete Movie Endpoint
 DELETE /movies/{id} - Delete a movie
+accepts data to delete movie by using movie ID
 
+GetMovieReview Endpoint
 GET /movies/{id}/reviews - Retrieve all reviews for a specific movie
+returns movie review based on ID
+if movie review is not found throw 'MovieNotFoundException'
+
+GetReview Endpoint
 GET /reviews/{id} - Retrieve a specific review by its ID
+returns review for specific ID
+if review is not found 'ReviewNotFoundException'
+
+AddMovieReview Endpoint
 POST /reviews - Create a new review
+accepts post request to review 
+contains movieId , username, review, ratings, and date
+
+UpdateMovieReview Endpoint
 PUT /reviews/{id} - Update an existing review
+accepts data to update review by ID
+if review is not found throw 'ReviewNotFoundException'
+
+DeleteReview Endpoint
 DELETE /reviews/{id} - Delete a review
+accepts data to delete review by ID
 
+GetAllUsers Endpoint
 GET /users - Retrieve a list of all users
-GET /users/{id} - Retrieve a specific user by its ID
-GET /users/{username} - Retrieve a specific user by its username
-POST /users - Create a new user
-PUT /users/{id} - Update an existing user
-DELETE /users/{id} - Delete a user
+Returns all users if there is no data, will throw 'NoDataFoundException'
 
+GetUserById Endpoint
+GET /users/{id} - Retrieve a specific user by its ID
+Returns user by id if ID does not exist 'UserNotFoundException'
+
+GetUserByUsername Endpoint
+GET /users/{username} - Retrieve a specific user by its username
+Returns user by username if ID does not exist 'UserNotFoundException'
+
+AddUser Endpoint
+POST /users - Create a new user
+creates new user with username, password, and email
+
+UpdateUser Endpoint
+PUT /users/{id} - Update an existing user
+updates users information if user is not found, throw 'UserNotFoundException'
+
+DeleteUser Endpoint
+DELETE /users/{id} - Delete a user
+accepts data to delete user by ID
 
 # 7. Tables
 
-_Define the DynamoDB tables you will need for the data your service will use. It may be helpful to first think of what objects your service will need, then translate that to a table structure, like with the *`Playlist` POJO* versus the `playlists` table in the Unit 3 project._
-
 Movies:
-- Table primary key: id (String)
+- Table partition key: id (String)
 - Title (String)
 - Description (String)
 - ReleaseDate (String)
@@ -136,22 +178,23 @@ Movies:
 - GSI key: Title (String)
 
 Reviews:
-- Table primary key: id (String)
+- Table partition key: id (String)
 - MovieId (String)
 - Username (String)
 - Text (String)
 - Rating (Number)
-- Date (String)
+- moviedate (String)
 - GSI: MovieId-index
 - GSI key: MovieId (String)
 - GSI: Username-index
 - GSI key: Username (String)
 
 Users:
-- Table primary key: id (String)
-- Username (String)
+- partition key : Username (String)
 - Email (String)
 - GSI: Username-index
 - GSI key: Username (String)
 
+
+Pages
 
