@@ -105,11 +105,21 @@ if movie id is not found throw 'MovieNotFoundException'
 Create Movie Endpoint
 POST /movies - Accepts post to create a new movie includes title and short description for non null fields 
 if movie contains invalid characters will throw 'InvalidAttributeValueException'
+{ 
+"title": "The Godfather", 
+"description": "no gabbagool?",
+"releaseDate": "1972-03-24",
+"posterUrl": "the-godfather.jpg",
+"genres": ["Drama", "Crime"],
+"cast": ["Al Pacino"],
+"director": "Francis Ford Coppola"
+}
 
 Update Movie Endpoint
 PUT /movies/{id} - Update an existing movie
 Accepts data to Movie 
 if movie is not found throw 'MovieNotFoundException'
+{ "description": "organized crime in New York City.","genres": ["Crime", "Drama"] }
 
 Delete Movie Endpoint
 DELETE /movies/{id} - Delete a movie
@@ -129,11 +139,13 @@ AddMovieReview Endpoint
 POST /reviews - Create a new review
 accepts post request to review 
 contains movieId , username, review, ratings, and date
+{ "id": 1, "movieId": 1, "username": "user1", "text": "Great movie, highly recommend it!", "rating": 5, "date : "2023-01-24" }
 
 UpdateMovieReview Endpoint
 PUT /reviews/{id} - Update an existing review
 accepts data to update review by ID
 if review is not found throw 'ReviewNotFoundException'
+{ "text": "Amazing movie, definitely a must-watch!", "rating": 5 }
 
 DeleteReview Endpoint
 DELETE /reviews/{id} - Delete a review
@@ -154,10 +166,12 @@ Returns user by username if ID does not exist 'UserNotFoundException'
 AddUser Endpoint
 POST /users - Create a new user
 creates new user with username, password, and email
+{ "username": "user1", "email": "user1@example.com", "password": "password1" }
 
 UpdateUser Endpoint
 PUT /users/{id} - Update an existing user
 updates users information if user is not found, throw 'UserNotFoundException'
+{ "email": "user1new@example.com", "password": "password2" }
 
 DeleteUser Endpoint
 DELETE /users/{id} - Delete a user
