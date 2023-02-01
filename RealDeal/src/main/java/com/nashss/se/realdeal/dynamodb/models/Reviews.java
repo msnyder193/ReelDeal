@@ -1,18 +1,24 @@
 package com.nashss.se.realdeal.dynamodb.models;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverted;
 import com.nashss.se.realdeal.converter.LocalDateConverter;
 
 import java.time.LocalDate;
 import java.util.Objects;
-
+@DynamoDBTable(tableName = "Reviews")
 public class Reviews {
     private int id;
     private int movieId;
     private String username;
     private String text;
     private int rating;
+
     private LocalDate movieDate;
 
+    @DynamoDBHashKey(attributeName = "id")
     public int getId() {
         return id;
     }
@@ -21,6 +27,7 @@ public class Reviews {
         this.id = id;
     }
 
+    @DynamoDBAttribute(attributeName = "movieId")
     public int getMovieId() {
         return movieId;
     }
@@ -29,6 +36,7 @@ public class Reviews {
         this.movieId = movieId;
     }
 
+    @DynamoDBAttribute(attributeName = "username")
     public String getUsername() {
         return username;
     }
@@ -37,6 +45,7 @@ public class Reviews {
         this.username = username;
     }
 
+    @DynamoDBAttribute(attributeName = "text")
     public String getText() {
         return text;
     }
@@ -44,7 +53,7 @@ public class Reviews {
     public void setText(String text) {
         this.text = text;
     }
-
+    @DynamoDBAttribute(attributeName = "rating")
     public int getRating() {
         return rating;
     }
@@ -53,14 +62,14 @@ public class Reviews {
         this.rating = rating;
     }
 
-    @DynamoDBAttrribute(attributeName = "moviedate")
+    @DynamoDBAttribute(attributeName = "movieDate")
     @DynamoDBTypeConverted(converter = LocalDateConverter.class)
     public LocalDate getMovieDate() {
-        return date;
+        return movieDate;
     }
 
     public void setMovieDate(LocalDate date) {
-        this.date = date;
+        this.movieDate = date;
     }
 
     @Override
@@ -68,12 +77,12 @@ public class Reviews {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Reviews reviews = (Reviews) o;
-        return id == reviews.id && movieId == reviews.movieId && rating == reviews.rating && Objects.equals(username, reviews.username) && Objects.equals(text, reviews.text) && Objects.equals(date, reviews.date);
+        return id == reviews.id && movieId == reviews.movieId && rating == reviews.rating && Objects.equals(username, reviews.username) && Objects.equals(text, reviews.text) && Objects.equals(movieDate, reviews.movieDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, movieId, username, text, rating, date);
+        return Objects.hash(id, movieId, username, text, rating, movieDate);
     }
 
     @Override
@@ -84,7 +93,7 @@ public class Reviews {
                 ", username='" + username + '\'' +
                 ", text='" + text + '\'' +
                 ", rating=" + rating +
-                ", date=" + date +
+                ", date=" + movieDate +
                 '}';
     }
 }

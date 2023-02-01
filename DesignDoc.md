@@ -86,7 +86,6 @@ ReelDeal will also provide a web interface for users. A main page providing a va
 
 
 // User 
-    private int id;
     private String username;
     private String password;
     private String email;
