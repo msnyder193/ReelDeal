@@ -1,5 +1,7 @@
 package com.nashss.se.realdeal.converter;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverter;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -10,7 +12,7 @@ public class LocalDateConverter implements DynamoDBTypeConverter<String, LocalDa
     }
 
     @Override
-    public LocalDate unconvery(String obj) {
+    public LocalDate unconvert(String obj) {
         return (obj == null) ? null : LocalDate.parse(obj, DateTimeFormatter.ISO_LOCAL_DATE);
     }
 }

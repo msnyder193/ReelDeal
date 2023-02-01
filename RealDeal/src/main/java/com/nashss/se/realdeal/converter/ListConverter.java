@@ -14,12 +14,13 @@ public class ListConverter implements DynamoDBTypeConverter<String, List>  {
 
     @Override
     public String convert(List listToBeConverted) {
-        return GSON.toJson(listToBeConverted);
+        //TODO: update list conversion
+        return null;
     }
 
     @Override
     public List unconvert(String dynamoDbRepresentation) {
-        // need to provide the type parameter of the list to convert correctly
-        return GSON.fromJson(dynamoDbRepresentation, new TypeToken<List<>>() { } .getType());
+        //TODO: update list unconverting
+        return null;
     }
 }
