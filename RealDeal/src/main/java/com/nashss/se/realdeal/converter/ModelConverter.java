@@ -21,7 +21,7 @@ public class ModelConverter {
                 .build();
     }
 
-    public ReviewsModel toReviewModel(Reviews reviews) {
+    public ReviewsModel toReviewsModel(Reviews reviews) {
         return ReviewsModel.builder()
                 .withId(reviews.getId())
                 .withMovieId(reviews.getMovieId())
