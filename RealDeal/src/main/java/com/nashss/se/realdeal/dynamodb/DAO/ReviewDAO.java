@@ -1,4 +1,4 @@
-package com.nashss.se.realdeal.dynamodb;
+package com.nashss.se.realdeal.dynamodb.DAO;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.nashss.se.realdeal.dynamodb.models.Reviews;

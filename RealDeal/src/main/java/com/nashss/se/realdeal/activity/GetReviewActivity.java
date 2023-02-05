@@ -2,7 +2,7 @@ package com.nashss.se.realdeal.activity;
 
 import com.nashss.se.realdeal.activity.requests.GetReviewRequest;
 import com.nashss.se.realdeal.activity.results.GetReviewResult;
-import com.nashss.se.realdeal.dynamodb.ReviewDAO;
+import com.nashss.se.realdeal.dynamodb.DAO.ReviewDAO;
 import com.nashss.se.realdeal.dynamodb.models.Reviews;
 import com.nashss.se.realdeal.exception.ReviewNotFoundException;
 
