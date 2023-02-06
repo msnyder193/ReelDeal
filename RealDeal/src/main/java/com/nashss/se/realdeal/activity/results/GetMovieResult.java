@@ -3,7 +3,7 @@ package com.nashss.se.realdeal.activity.results;
 import com.nashss.se.realdeal.dynamodb.models.Movies;
 
 public class GetMovieResult {
-    private Movies singleMovie;
+    private final Movies singleMovie;
 
     public GetMovieResult(Movies singleMovie) {
         this.singleMovie = singleMovie;

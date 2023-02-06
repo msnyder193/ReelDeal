@@ -14,7 +14,7 @@ import javax.inject.Inject;
  */
 public class MetricsPublisher {
 
-    private AmazonCloudWatch cloudWatch;
+    private final AmazonCloudWatch cloudWatch;
 
     /**
      * Creates a metrics publisher with the given AmazonCloudWatch.

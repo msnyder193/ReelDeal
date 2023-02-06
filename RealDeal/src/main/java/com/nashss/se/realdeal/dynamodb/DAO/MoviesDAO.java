@@ -1,5 +1,7 @@
 package com.nashss.se.realdeal.dynamodb.DAO;
 
+import javax.inject.Inject;
+
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.nashss.se.realdeal.dynamodb.models.Movies;
 import com.nashss.se.realdeal.exception.MovieNotFoundException;
@@ -9,7 +11,7 @@ import com.nashss.se.realdeal.metrics.MetricsPublisher;
 public class MoviesDAO {
     private final DynamoDBMapper mapper;
     private final MetricsPublisher metricsPublisher;
-
+    @Inject
     public MoviesDAO(DynamoDBMapper mapper, MetricsPublisher metricsPublisher) {
         this.mapper = mapper;
         this.metricsPublisher = metricsPublisher;

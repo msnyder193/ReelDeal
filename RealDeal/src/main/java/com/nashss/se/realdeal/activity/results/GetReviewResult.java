@@ -1,10 +1,9 @@
 package com.nashss.se.realdeal.activity.results;
 
-import com.nashss.se.realdeal.activity.requests.GetReviewRequest;
 import com.nashss.se.realdeal.dynamodb.models.Reviews;
 
 public class GetReviewResult {
-    private Reviews singleReview;
+    private final Reviews singleReview;
 
     public GetReviewResult(Reviews singleReview) {
         this.singleReview = singleReview;
