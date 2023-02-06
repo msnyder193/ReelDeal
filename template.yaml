@@ -160,7 +160,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Role: !GetAtt AccessDynamoDBTablesRole.Arn
-      CodeUri: CurrencyPalServiceLambda
+      CodeUri: RealDeal
       Handler: com.nashss.se.realdeal.lambda.GetMovieLambda::handleRequest
       Runtime: java11
       Architectures:

@@ -1,6 +1,5 @@
 package com.nashss.se.realdeal.activity.results;
 
-import com.nashss.se.realdeal.activity.requests.GetReviewRequest;
 import com.nashss.se.realdeal.dynamodb.models.Reviews;
 
 public class GetReviewResult {
