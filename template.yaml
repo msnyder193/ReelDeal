@@ -175,3 +175,39 @@ Resources:
           Properties:
             Path: /movies/{id}
             Method: get
+
+  MoviesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: "Movies"
+      KeySchema:
+        - AttributeName: "id"
+          KeyType: "HASH"
+      AttributeDefinitions:
+        - AttributeName: "id"
+          AttributeType: "N"
+      BillingMode: "PAY_PER_REQUEST"
+
+  ReviewsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: "Reviews"
+      KeySchema:
+        - AttributeName: "id"
+          KeyType: "HASH"
+      AttributeDefinitions:
+        - AttributeName: "id"
+          AttributeType: "N"
+      BillingMode: "PAY_PER_REQUEST"
+
+  UsersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: "Users"
+      KeySchema:
+        - AttributeName: "username"
+          KeyType: "HASH"
+      AttributeDefinitions:
+        - AttributeName: "username"
+          AttributeType: "S"
+      BillingMode: "PAY_PER_REQUEST"
