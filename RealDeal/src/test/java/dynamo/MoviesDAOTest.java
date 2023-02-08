@@ -2,12 +2,14 @@ package dynamo;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.nashss.se.realdeal.dynamodb.DAO.MoviesDAO;
 import com.nashss.se.realdeal.dynamodb.models.Movies;
+import com.nashss.se.realdeal.exception.MovieNotFoundException;
 import com.nashss.se.realdeal.metrics.MetricsConstants;
 import com.nashss.se.realdeal.metrics.MetricsPublisher;
 import org.junit.jupiter.api.Assertions;
@@ -55,7 +57,8 @@ public class MoviesDAOTest {
     @Test
     public void testGetMovie_MovieNotFound() {
         when(mapper.load(Movies.class, "456")).thenReturn(null);
-        moviesDAO.getMovie("456");
+
+        assertThrows(MovieNotFoundException.class, () -> moviesDAO.getMovie("456"));
         verify(metricsPublisher).addCount(MetricsConstants.GETMOVIE_MOVIENOTFOUND_COUNT, 1);
     }
 }
