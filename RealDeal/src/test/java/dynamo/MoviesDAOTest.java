@@ -4,7 +4,6 @@ import java.util.List;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.testng.AssertJUnit.assertEquals;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.nashss.se.realdeal.dynamodb.DAO.MoviesDAO;
