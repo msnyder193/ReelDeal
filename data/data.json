@@ -1,0 +1,110 @@
+{
+  "Movies": [
+    {
+      "PutRequest": {
+        "Item": {
+          "id": {"S": "movie1"},
+          "title" : {"S": "The Shawshank Redemption"},
+          "releaseDate": {"N": "1994"},
+          "director": {"S": "Frank Darabont"},
+          "cast": {"S": "Tim Robbins, Morgan Freeman, Bob Gunton"},
+          "genres": {"S": "Drama, Crime"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": {"S": "movie2"},
+          "title" : {"S": "The Godfather"},
+          "releaseDate": {"N": "1972"},
+          "director": {"S": "Francis Ford Coppola"},
+          "cast": {"S": "Marlon Brando, Al Pacino, James Caan"},
+          "genres": {"S": "Drama, Crime"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": {"S": "movie3"},
+          "title" : {"S": "The Godfather: Part II"},
+          "releaseDate": {"N": "1974"},
+          "director": {"S": "Francis Ford Coppola"},
+          "cast": {"S": "Al Pacino, Robert De Niro, Robert Duvall"},
+          "genres": {"S": "Drama, Crime"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": {"S": "movie4"},
+          "title" : {"S": "The Dark Knight"},
+          "releaseDate": {"N": "2008"},
+          "director": {"S": "Christopher Nolan"},
+          "cast": {"S": "Christian Bale, Heath Ledger, Aaron Eckhart"},
+          "genres": {"S": "Action, Crime, Drama"}
+        }
+      }
+    }
+  ],
+  "Users": [
+    {
+      "PutRequest": {
+        "Item": {
+          "username": {"S": "user1"},
+          "email": {"S": "user1@example.com"},
+          "password": {"S": "password1"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "username": {"S": "user2"},
+          "email": {"S": "user2@example.com"},
+          "password": {"S": "password2"}
+        }
+      }
+    }
+  ],
+  "Reviews": [
+    {
+      "PutRequest": {
+        "Item": {
+          "id": {"S": "1"},
+          "username": {"S": "user1"},
+          "movieId": {"S": "movie1"},
+          "rating": { "N": "4.0"},
+          "text": {"s": "great movie, highly recommend it!"},
+          "movieDate": {"S": "2022-12-01"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": {"S": "2"},
+          "username": {"S": "user2"},
+          "movieId": {"S": "movie1"},
+          "rating": { "N": "3.5"},
+          "text": {"S": "Good movie, enjoyed it!"},
+          "movieDate": {"S": "2022-11-20"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "reviewId": {"S": "3"},
+          "username": {"S": "user3"},
+          "movieId": {"S": "movie2"},
+          "rating": { "N": "4.5"},
+          "text": {"S": "Amazing movie, one of the best I've ever seen!"},
+          "movieDate": {"S": "2022-10-15"}
+        }
+      }
+    }
+  ]
+}

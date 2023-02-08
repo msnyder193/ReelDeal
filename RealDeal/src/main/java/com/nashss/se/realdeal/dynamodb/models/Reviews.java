@@ -15,7 +15,6 @@ public class Reviews {
     private String username;
     private String text;
     private int rating;
-
     private LocalDate movieDate;
 
     @DynamoDBHashKey(attributeName = "id")
