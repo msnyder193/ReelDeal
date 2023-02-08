@@ -6,12 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.nashss.se.realdeal.dynamodb.DAO.UsersDAO;
 import com.nashss.se.realdeal.exception.UserNotFoundException;
 import com.nashss.se.realdeal.metrics.MetricsConstants;
 import com.nashss.se.realdeal.metrics.MetricsPublisher;
-import org.junit.Before;
-import org.junit.Test;
+
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -29,7 +31,7 @@ public class UsersDAOTest {
     private MetricsPublisher metricsPublisher;
     private UsersDAO dao;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         dao = new UsersDAO(mapper, metricsPublisher);
