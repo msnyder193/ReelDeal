@@ -11,7 +11,7 @@ import java.util.Objects;
 
 @DynamoDBTable(tableName = "Movies")
 public class Movies {
-    private int id;
+    private String id;
     private String title;
     private String description;
     private String releaseDate;
@@ -21,11 +21,11 @@ public class Movies {
     private String director;
 
     @DynamoDBHashKey(attributeName = "id")
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
     @DynamoDBAttribute(attributeName = "title")

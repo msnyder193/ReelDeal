@@ -9,9 +9,12 @@ import javax.inject.Inject;
 public class ReviewDAO {
     private final DynamoDBMapper mapper;
 
+    private final MetricsPublisher metricsPublisher;
+
     @Inject
     public ReviewDAO(DynamoDBMapper mapper, MetricsPublisher metricsPublisher) {
         this.mapper = mapper;
+        this.metricsPublisher = metricsPublisher;
     }
 
     public Reviews getSingleReview(String id) {

@@ -10,28 +10,28 @@ import java.time.LocalDate;
 import java.util.Objects;
 @DynamoDBTable(tableName = "Reviews")
 public class Reviews {
-    private int id;
-    private int movieId;
+    private String id;
+    private String movieId;
     private String username;
     private String text;
     private int rating;
     private LocalDate movieDate;
 
     @DynamoDBHashKey(attributeName = "id")
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
     @DynamoDBAttribute(attributeName = "movieId")
-    public int getMovieId() {
+    public String getMovieId() {
         return movieId;
     }
 
-    public void setMovieId(int movieId) {
+    public void setMovieId(String movieId) {
         this.movieId = movieId;
     }
 
