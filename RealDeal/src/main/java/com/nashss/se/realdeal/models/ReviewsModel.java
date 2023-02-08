@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class ReviewsModel {
-    private final int id;
-    private final int movieId;
+    private final String id;
+    private final String movieId;
     private final String username;
     private final String text;
     private final int rating;
@@ -22,7 +22,7 @@ public class ReviewsModel {
      * @param movieDate the date
      */
 
-    public ReviewsModel(int id, int movieId, String username, String text, int rating, LocalDate movieDate) {
+    public ReviewsModel(String id, String movieId, String username, String text, int rating, LocalDate movieDate) {
         this.id = id;
         this.movieId = movieId;
         this.username = username;
@@ -33,11 +33,11 @@ public class ReviewsModel {
     public LocalDate getMovieDate() {
         return movieDate;
     }
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public int getMovieId() {
+    public String getMovieId() {
         return movieId;
     }
 
@@ -71,19 +71,19 @@ public class ReviewsModel {
     }
 
     public static class Builder {
-        private int id;
-        private int movieId;
+        private String id;
+        private String movieId;
         private String username;
         private String text;
         private int rating;
         private LocalDate movieDate;
 
-        public Builder withId(int id) {
+        public Builder withId(String id) {
             this.id = id;
             return this;
         }
 
-        public Builder withMovieId(int movieId) {
+        public Builder withMovieId(String movieId) {
             this.movieId = movieId;
             return this;
         }

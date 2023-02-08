@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class MoviesModel {
-    private final int id;
+    private final String id;
     private final String title;
     private final String description;
     private  final String releaseDate;
@@ -24,7 +24,7 @@ public class MoviesModel {
      * @param cast
      * @param director
      */
-    public MoviesModel(int id, String title, String description, String releaseDate, String posterUrl,
+    public MoviesModel(String id, String title, String description, String releaseDate, String posterUrl,
                        List<String> genres, List<String> cast, String director) {
         this.id = id;
         this.title = title;
@@ -36,7 +36,7 @@ public class MoviesModel {
         this.director = director;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -86,7 +86,7 @@ public class MoviesModel {
     }
 
     public static class Builder {
-        private int id;
+        private String id;
         private String title;
         private String description;
         private String releaseDate;
@@ -95,7 +95,7 @@ public class MoviesModel {
         private List<String> cast;
         private String director;
 
-        public Builder withId(int id) {
+        public Builder withId(String id) {
             this.id = id;
             return this;
         }

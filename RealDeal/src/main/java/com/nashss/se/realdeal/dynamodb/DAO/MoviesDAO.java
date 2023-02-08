@@ -26,10 +26,10 @@ public class MoviesDAO {
     public Movies getMovie(String movieId) {
         Movies movie = this.mapper.load(Movies.class, movieId);
         if (movie == null) {
-            metricsPublisher.addCount(MetricsConstants.GETTRANSACTION_TRANSACTIONNOTFOUND_COUNT, 1);
+            metricsPublisher.addCount(MetricsConstants.GETMOVIE_MOVIENOTFOUND_COUNT, 1);
             throw new MovieNotFoundException("Could not find transaction with id: " + movieId);
         }
-        metricsPublisher.addCount(MetricsConstants.GETTRANSACTION_TRANSACTIONNOTFOUND_COUNT, 0);
+        metricsPublisher.addCount(MetricsConstants.GETMOVIE_MOVIENOTFOUND_COUNT, 0);
         return movie;
 
     }
