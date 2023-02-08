@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="assets/viewTransaction.js"></script>
+    <script type="text/javascript" src="assets/createTransaction.js"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="assets/viewCurrency.js"></script>
+    <style>table, th, td, tr {border: 1px solid;}</style>
+</head>
+ <body>
+ <div>
+     <link href="css/style.css" rel="stylesheet" />
+     <div class="home-container">
+         <header data-thq="thq-navbar" class="home-navbar-interactive">
+             <img src="images/currencyPalLogo.png" class="home-image" />
+             <div data-thq="thq-navbar-nav" data-role="Nav" class="home-desktop-menu">
+                 <nav data-thq="thq-navbar-nav-links" data-role="Nav" class="home-nav">
+                     <a href="index.html" id="homeLink" class="home-navlink">
+                         <span>Home</span>
+                         <br />
+                     </a>
+                     <a href="customer.html" id="customersLink" class="home-navlink1">
+                         <span>Customers</span>
+                         <br />
+                     </a>
+                     <a href="transaction.html" id="transactionsLink" class="home-navlink2">
+                         <span>Transactions</span>
+                         <br />
+                     </a>
+                 </nav>
+             </div>
+         </header>
+         <div id="home" class="home-container1">
+             <h1 class="home-heading">The World&apos;s Trusted Currency Authority</h1>
+         </div>
+         <div id="display" class="home-container2">
+             <table id="rates-table-head">
+
+             </table>
+             <table id="rates-table">
+                 <tr>
+                     <th>Loading The Rates Please Wait</th>
+                 </tr>
+             </table>
+         </div>
+         <div class="home-container3">
+             <input type="text" placeholder="Enter Amount" class="home-textinput input" id="startAmount"/>
+             <input type="text" placeholder="Customer Name" class="home-customerinput input" id="customerName"/>
+             <button type="button" class="convert-button button" id="convertButton">Convert</button>
+
+             <div class="start-currency-dropdown">
+                 <label for="start-currency-dropdown">Start Currency: </label>
+                 <select name="start-currency-dropdown" id="start-currency-dropdown">
+                     <option value="placeHolder">Select Currency</option>
+                     <option value="USD">USD</option>
+                     <option value="CHF">CHF</option>
+                     <option value="EUR">EUR</option>
+                     <option value="JPY">JPY</option>
+                     <option value="BGN">BGN</option>
+                     <option value="CZK">CZK</option>
+                     <option value="DKK">DKK</option>
+                     <option value="GBP">GBP</option>
+                     <option value="HUF">HUF</option>
+                 </select>
+             </div>
+             <div class="end-currency-dropdown">
+                 <label for="end-currency-dropdown">End Currency: </label>
+                 <select name="end-currency-dropdown" id="end-currency-dropdown">
+                     <option value="placeHolder">Select Currency</option>
+                     <option value="USD">USD</option>
+                     <option value="CHF">CHF</option>
+                     <option value="EUR">EUR</option>
+                     <option value="JPY">JPY</option>
+                     <option value="BGN">BGN</option>
+                     <option value="CZK">CZK</option>
+                     <option value="DKK">DKK</option>
+                     <option value="GBP">GBP</option>
+                     <option value="HUF">HUF</option>
+                 </select>
+             </div>
+             <div class="convertedAmount" id="amountConvertedBox">
+                 <p>AmountConverted</p>
+             </div>
+         </div>
+     </div>
+ </div>
+ </body>
+</html>
