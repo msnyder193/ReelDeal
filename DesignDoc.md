@@ -197,8 +197,7 @@ Reviews:
 Users:
 - partition key : Username (String)
 - Email (String)
-- GSI: Username-index
-- GSI key: Username (String)
+
 
 
 Pages
