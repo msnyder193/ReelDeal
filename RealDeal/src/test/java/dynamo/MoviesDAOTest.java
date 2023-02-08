@@ -12,6 +12,7 @@ import com.nashss.se.realdeal.dynamodb.models.Movies;
 import com.nashss.se.realdeal.exception.MovieNotFoundException;
 import com.nashss.se.realdeal.metrics.MetricsConstants;
 import com.nashss.se.realdeal.metrics.MetricsPublisher;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
