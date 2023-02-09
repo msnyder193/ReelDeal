@@ -2,6 +2,7 @@ package com.nashss.se.realdeal.dynamodb.models;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexRangeKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverted;
 import com.nashss.se.realdeal.converter.ListConverter;
@@ -28,6 +29,7 @@ public class Movies {
     public void setId(String id) {
         this.id = id;
     }
+    @DynamoDBIndexRangeKey(globalSecondaryIndexName = "ReviewByTitleIndex")
     @DynamoDBAttribute(attributeName = "title")
     public String getTitle() {
         return title;
