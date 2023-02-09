@@ -2,8 +2,11 @@ package com.nashss.se.realdeal.dependency;
 
 import javax.inject.Singleton;
 
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.nashss.se.realdeal.activity.GetAllMoviesActivity;
 import com.nashss.se.realdeal.activity.GetMovieActivity;
 import com.nashss.se.realdeal.activity.GetReviewActivity;
+import com.nashss.se.realdeal.activity.requests.GetAllMoviesRequest;
 import dagger.Component;
 
 /**
@@ -25,4 +28,9 @@ public interface ServiceComponent {
      */
     GetReviewActivity provideGetReviewActivity();
 
+    /**
+     * provides the relevant activity.
+     * @return GetAllMoviesActivity
+     */
+    GetAllMoviesActivity provideGetAllMoviesActivity();
 }

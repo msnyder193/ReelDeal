@@ -2,7 +2,10 @@ package com.nashss.se.realdeal.dynamodb.DAO;
 
 import javax.inject.Inject;
 
+import java.util.List;
+
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.nashss.se.realdeal.dynamodb.models.Movies;
 import com.nashss.se.realdeal.exception.MovieNotFoundException;
 import com.nashss.se.realdeal.metrics.MetricsConstants;
@@ -32,5 +35,10 @@ public class MoviesDAO {
         metricsPublisher.addCount(MetricsConstants.GETMOVIE_MOVIENOTFOUND_COUNT, 0);
         return movie;
 
+    }
+
+    public List<Movies> getAllMovies() {
+        DynamoDBScanExpression scanExpression = new DynamoDBScanExpression();
+        return mapper.scan(Movies.class, scanExpression);
     }
 }
