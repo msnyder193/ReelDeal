@@ -13,6 +13,7 @@ public class GetAllMovieReviewsLambda extends LambdaActivityRunner<GetAllMovieRe
         return super.runActivity(
             () -> input.fromPath(path ->
                 GetAllMovieReviewsRequest.builder()
+                    .withMovieId(path.get("movieId"))
                     .build()),
             (request, serviceComponent) ->
                 serviceComponent.provideGetAllMovieReviewsActivity().handleRequest(request)
