@@ -245,7 +245,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        ReelDeal:
           Type: Api
           Properties:
             Path: /movies/{id}
@@ -255,7 +255,7 @@ Resources:
     Properties:
       Role: !GetAtt AccessDynamoDBTablesRole.Arn
       CodeUri: RealDeal
-      Handler: com.nashss.se.realdeal.lambda.GetMovieLambda::handleRequest
+      Handler: com.nashss.se.realdeal.lambda.GetReviewLambda::handleRequest
       Runtime: java11
       Architectures:
         - x86_64
@@ -264,7 +264,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        ReelDeal:
           Type: Api
           Properties:
             Path: /reviews/{id}
@@ -275,7 +275,7 @@ Resources:
     Properties:
       Role: !GetAtt AccessDynamoDBTablesRole.Arn
       CodeUri: RealDeal
-      Handler: com.nashss.se.realdeal.lambda.GetMovieLambda::handleRequest
+      Handler: com.nashss.se.realdeal.lambda.GetAllMovieReviewsLambda::handleRequest
       Runtime: java11
       Architectures:
         - x86_64
