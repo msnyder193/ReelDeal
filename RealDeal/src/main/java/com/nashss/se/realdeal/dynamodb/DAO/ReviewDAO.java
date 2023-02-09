@@ -28,4 +28,8 @@ public class ReviewDAO {
         metricsPublisher.addCount(MetricsConstants.GETREVIEW_REVIEWNOTFOUND_COUNT, 0);
         return reviews;
     }
+
+    public void saveReview(Reviews review) {
+        this.mapper.save(review);
+    }
 }
