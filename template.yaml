@@ -303,9 +303,9 @@ Resources:
         - AttributeName: "id"
           AttributeType: "S"
         - AttributeName: "movieId"
-          KeyType: "S"
+          AttributeType: "S"
         - AttributeName: "username"
-          KeyType: "S"
+          AttributeType: "S"
       BillingMode: "PAY_PER_REQUEST"
       GlobalSecondaryIndexes:
         - IndexName: "ReviewByMovieIdIndex"
@@ -315,11 +315,11 @@ Resources:
           Projection:
             ProjectionType: "ALL"
         - IndexName: "ReviewByUsernameIndex"
-            KeySchema:
-              - AttributeName: "username"
-                KeyType: "HASH"
-            Projection:
-              ProjectionType: "ALL"
+          KeySchema:
+            - AttributeName: "username"
+              KeyType: "HASH"
+          Projection:
+            ProjectionType: "ALL"
 
   UsersTable:
     Type: AWS::DynamoDB::Table

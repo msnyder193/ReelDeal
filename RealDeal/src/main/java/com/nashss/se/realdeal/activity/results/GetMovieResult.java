@@ -1,15 +1,17 @@
 package com.nashss.se.realdeal.activity.results;
 
 import com.nashss.se.realdeal.dynamodb.models.Movies;
+import com.nashss.se.realdeal.models.MoviesModel;
 
 public class GetMovieResult {
-    private final Movies singleMovie;
+    private final MoviesModel singleMovie;
 
     public GetMovieResult(Movies singleMovie) {
-        this.singleMovie = singleMovie;
+        this.singleMovie = new MoviesModel(singleMovie.getId(), singleMovie.getTitle(), singleMovie.getDescription(),
+            singleMovie.getReleaseDate(), singleMovie.getPosterUrl(), singleMovie.getGenres(), singleMovie.getCast(), singleMovie.getDirector());
     }
 
-    public Movies getSingleReview() {
+    public MoviesModel getSingleMovie() {
         return singleMovie;
     }
 

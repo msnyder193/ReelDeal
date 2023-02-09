@@ -18,19 +18,19 @@ public class GetMovieRequest {
                 '}';
     }
 
-    public static GetMovieRequest.Builder builder() {
-        return new GetMovieRequest.Builder();
+    public static Builder builder() {
+        return new Builder();
     }
 
     public static class Builder {
         public String id;
-        public GetMovieRequest.Builder withId(String id) {
+        public Builder withId(String id) {
             this.id = id;
             return this;
         }
-    }
+        public GetMovieRequest build() {
+            return new GetMovieRequest(id);
 
-    public GetMovieRequest build() {
-        return new GetMovieRequest(id);
+        }
     }
 }
