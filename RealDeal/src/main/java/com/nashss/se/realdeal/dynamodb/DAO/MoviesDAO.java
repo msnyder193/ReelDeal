@@ -33,4 +33,9 @@ public class MoviesDAO {
         return movie;
 
     }
+
+    public void saveMovie(Movies movie) {
+        this.mapper.save(movie);
+    }
+
 }
