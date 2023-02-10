@@ -250,6 +250,7 @@ Resources:
           Properties:
             Path: /movies/{id}
             Method: get
+
   GetReviewLambda:
     Type: AWS::Serverless::Function
     Properties:
