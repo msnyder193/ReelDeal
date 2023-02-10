@@ -276,7 +276,7 @@ Resources:
     Properties:
       Role: !GetAtt AccessDynamoDBTablesRole.Arn
       CodeUri: RealDeal
-      Handler: com.nashss.se.realdeal.lambda.GetMovieLambda::handleRequest
+      Handler: com.nashss.se.realdeal.lambda.GetReviewLambda::handleRequest
       Runtime: java11
       Architectures:
         - x86_64
@@ -289,6 +289,26 @@ Resources:
           Type: Api
           Properties:
             Path: /reviews/{id}
+            Method: get
+
+  GetAllMovieReviewsLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessDynamoDBTablesRole.Arn
+      CodeUri: RealDeal
+      Handler: com.nashss.se.realdeal.lambda.GetAllMovieReviewsLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        ReelDeal:
+          Type: Api
+          Properties:
+            Path: /movies/{movieId}/reviews
             Method: get
 
   MoviesTable:
