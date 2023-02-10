@@ -290,6 +290,7 @@ Resources:
           Properties:
             Path: /reviews/
             Method: post
+
   GetReviewLambda:
     Type: AWS::Serverless::Function
     Properties:
