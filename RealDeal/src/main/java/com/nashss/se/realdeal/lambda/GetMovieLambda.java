@@ -5,9 +5,6 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.nashss.se.realdeal.activity.requests.GetMovieRequest;
 import com.nashss.se.realdeal.activity.results.GetMovieResult;
 
-
-
-
 public class GetMovieLambda extends LambdaActivityRunner<GetMovieRequest, GetMovieResult> implements
     RequestHandler<LambdaRequest<GetMovieRequest>, LambdaResponse> {
 

@@ -2,10 +2,14 @@ package com.nashss.se.realdeal.dependency;
 
 import javax.inject.Singleton;
 
+import com.nashss.se.realdeal.activity.CreateMovieActivity;
+import com.nashss.se.realdeal.activity.CreateReviewActivity;
+import com.nashss.se.realdeal.activity.GetAllMovieReviewsActivity;
 import com.nashss.se.realdeal.activity.GetAllMoviesActivity;
 import com.nashss.se.realdeal.activity.GetMovieActivity;
 import com.nashss.se.realdeal.activity.GetReviewActivity;
 
+import com.nashss.se.realdeal.activity.UpdateMovieActivity;
 import dagger.Component;
 
 /**
@@ -32,4 +36,22 @@ public interface ServiceComponent {
      * @return GetAllMoviesActivity
      */
     GetAllMoviesActivity provideGetAllMoviesActivity();
+
+    /**
+     * provides the relevant activity.
+     * @return GetAllMovieReviewsActivity
+     */
+    GetAllMovieReviewsActivity provideGetAllMovieReviewsActivity();
+
+    /**
+     * provides the relevant activity.
+     * @return CreateReviewActivity
+     */
+    UpdateMovieActivity provideUpdateMovieActivity();
+
+    /**
+     * provides the relevant activity.
+     * @return CreateMovieActivity
+     */
+    CreateMovieActivity provideCreateMovieActivity();
 }
