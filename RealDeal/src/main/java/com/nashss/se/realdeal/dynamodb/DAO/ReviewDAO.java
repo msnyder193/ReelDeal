@@ -35,6 +35,10 @@ public class ReviewDAO {
         return reviews;
     }
 
+    public void saveReview(Reviews review) {
+        this.mapper.save(review);
+    } 
+    
     public List<Reviews> getAllReviewsForMovie(String movieId) {
         Map<String, AttributeValue> valueMap = new HashMap<>();
         valueMap.put(":movieId", new AttributeValue().withS(movieId));
