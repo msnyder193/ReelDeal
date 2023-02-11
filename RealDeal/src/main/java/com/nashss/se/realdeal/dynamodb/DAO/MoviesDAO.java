@@ -41,4 +41,9 @@ public class MoviesDAO {
         DynamoDBScanExpression scanExpression = new DynamoDBScanExpression();
         return mapper.scan(Movies.class, scanExpression);
     }
+    
+    public void saveMovie(Movies movie) {
+        this.mapper.save(movie);
+    }
+
 }
