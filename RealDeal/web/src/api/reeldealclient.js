@@ -15,7 +15,8 @@ export default class ReelDealService extends BindingClass {
     constructor(props = {}) {
         super();
 
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout', 'getAllWorkoutPlans', 'getWorkoutPlan', 'getAllExercises', 'getExercise', 'createExercise', 'updateExercise'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout', 'getAllWorkoutPlans',
+         'getWorkoutPlan', 'getAllExercises', 'getExercise', 'createExercise', 'updateExercise'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
