@@ -3,10 +3,17 @@ package com.nashss.se.realdeal.dependency;
 import javax.inject.Singleton;
 
 import com.amazonaws.services.lambda.runtime.RequestHandler;
+<<<<<<< HEAD
+import com.nashss.se.realdeal.activity.GetAllMovieReviewsActivity;
 import com.nashss.se.realdeal.activity.GetMovieActivity;
 import com.nashss.se.realdeal.activity.GetReviewActivity;
-import com.nashss.se.realdeal.activity.UpdateMovieActivity;
-import com.nashss.se.realdeal.activity.requests.UpdateMovieRequest;
+import com.nashss.se.realdeal.activity.requests.GetAllMovieReviewsRequest;
+import com.nashss.se.realdeal.activity.CreateMovieActivity;
+import com.nashss.se.realdeal.activity.CreateReviewActivity;
+import com.nashss.se.realdeal.activity.GetMovieActivity;
+import com.nashss.se.realdeal.activity.GetReviewActivity;
+import com.nashss.se.realdeal.activity.requests.CreateMovieRequest;
+import com.nashss.se.realdeal.activity.requests.CreateReviewRequest;
 import dagger.Component;
 
 /**
@@ -28,9 +35,4 @@ public interface ServiceComponent {
      */
     GetReviewActivity provideGetReviewActivity();
 
-    /**
-     * Provides the relevant activity.
-     * @return UpdateMovieActivity
-     */
-    UpdateMovieActivity provideUpdateMovieActivity();
 }
