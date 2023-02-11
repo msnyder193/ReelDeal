@@ -1,5 +1,6 @@
 package com.nashss.se.realdeal.activity;
 
+import javax.inject.Inject;
 import javax.management.InvalidAttributeValueException;
 
 import com.nashss.se.realdeal.activity.requests.UpdateMovieRequest;
@@ -17,7 +18,7 @@ public class UpdateMovieActivity {
     private final MoviesDAO moviesDAO;
     private final MetricsPublisher metricsPublisher;
 
-
+    @Inject
     public UpdateMovieActivity(MoviesDAO moviesDAO, MetricsPublisher metricsPublisher) {
         this.moviesDAO = moviesDAO;
         this.metricsPublisher = metricsPublisher;

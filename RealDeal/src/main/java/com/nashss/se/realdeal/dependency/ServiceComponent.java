@@ -45,7 +45,7 @@ public interface ServiceComponent {
 
     /**
      * provides the relevant activity.
-     * @return CreateReviewActivity
+     * @return UpdateMovieActivity
      */
     UpdateMovieActivity provideUpdateMovieActivity();
 
@@ -54,4 +54,10 @@ public interface ServiceComponent {
      * @return CreateMovieActivity
      */
     CreateMovieActivity provideCreateMovieActivity();
+
+    /**
+     * provides the relevant activity.
+     * @return CreateReviewActivity
+     */
+    CreateReviewActivity provideCreateReviewActivity();
 }
