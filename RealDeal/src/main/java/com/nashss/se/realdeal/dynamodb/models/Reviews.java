@@ -17,7 +17,7 @@ public class Reviews {
     private String username;
     private String text;
     private int rating;
-    private LocalDate movieDate;
+    private String movieDate;
 
     @DynamoDBHashKey(attributeName = "id")
     public String getId() {
@@ -67,11 +67,11 @@ public class Reviews {
 
     @DynamoDBAttribute(attributeName = "movieDate")
     @DynamoDBTypeConverted(converter = LocalDateConverter.class)
-    public LocalDate getMovieDate() {
+    public String getMovieDate() {
         return movieDate;
     }
 
-    public void setMovieDate(LocalDate date) {
+    public void setMovieDate(String date) {
         this.movieDate = date;
     }
 

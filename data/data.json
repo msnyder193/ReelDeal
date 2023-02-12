@@ -4,11 +4,12 @@
       "PutRequest": {
         "Item": {
           "id": {"S": "movie1"},
-          "title" : {"S": "The Shawshank Redemption"},
-          "releaseDate": {"N": "1994"},
-          "director": {"S": "Frank Darabont"},
-          "cast": {"S": "Tim Robbins, Morgan Freeman, Bob Gunton"},
-          "genres": {"S": "Drama, Crime"}
+          "title" : {"S": "kill Bill "},
+          "releaseDate": {"N": "2003"},
+          "posterUrl": {"S": "web/static_assets/images/killbill.png"},
+          "director": {"S": "Quentin Tarantino "},
+          "cast": {"S": "Uma Thurman, David Carradine, Daryl Hannah"},
+          "genres": {"S": "Action, Crime, Drama"}
         }
       }
     },
@@ -17,6 +18,7 @@
         "Item": {
           "id": {"S": "movie2"},
           "title" : {"S": "The Godfather"},
+          "posterUrl" : {"S": "web/static_assets/images/godfather.png"},
           "releaseDate": {"N": "1972"},
           "director": {"S": "Francis Ford Coppola"},
           "cast": {"S": "Marlon Brando, Al Pacino, James Caan"},
@@ -28,10 +30,11 @@
       "PutRequest": {
         "Item": {
           "id": {"S": "movie3"},
-          "title" : {"S": "The Godfather: Part II"},
-          "releaseDate": {"N": "1974"},
-          "director": {"S": "Francis Ford Coppola"},
-          "cast": {"S": "Al Pacino, Robert De Niro, Robert Duvall"},
+          "title" : {"S": "Pulp Fiction"},
+          "releaseDate": {"N": "1994"},
+          "posterUrl" : {"S": "web/static_assets/images/pulpfiction.png"},
+          "director": {"S": "Quentin Tarantino "},
+          "cast": {"S": "John Travolta, Uma Thurman, Samuel L Jackson"},
           "genres": {"S": "Drama, Crime"}
         }
       }
@@ -40,31 +43,12 @@
       "PutRequest": {
         "Item": {
           "id": {"S": "movie4"},
-          "title" : {"S": "The Dark Knight"},
+          "title" : {"S": "Reservoir Dogs"},
           "releaseDate": {"N": "2008"},
-          "director": {"S": "Christopher Nolan"},
-          "cast": {"S": "Christian Bale, Heath Ledger, Aaron Eckhart"},
-          "genres": {"S": "Action, Crime, Drama"}
-        }
-      }
-    }
-  ],
-  "Users": [
-    {
-      "PutRequest": {
-        "Item": {
-          "username": {"S": "user1"},
-          "email": {"S": "user1@example.com"},
-          "password": {"S": "password1"}
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "username": {"S": "user2"},
-          "email": {"S": "user2@example.com"},
-          "password": {"S": "password2"}
+          "posterUrl": {"S":"web/static_assets/images/reservoirdogs.png"},
+          "director": {"S": "Quentin Tarantino"},
+          "cast": {"S": "Harvey Keitel , Tim Roth, Michael Madsen"},
+          "genres": {"S": "Action, Crime, Thriller"}
         }
       }
     }
@@ -77,7 +61,7 @@
           "username": {"S": "user1"},
           "movieId": {"S": "movie1"},
           "rating": { "N": "4.0"},
-          "text": {"s": "great movie, highly recommend it!"},
+          "text": {"S": "great movie, highly recommend it!"},
           "movieDate": {"S": "2022-12-01"}
         }
       }
@@ -97,7 +81,7 @@
     {
       "PutRequest": {
         "Item": {
-          "reviewId": {"S": "3"},
+          "id": {"S": "3"},
           "username": {"S": "user3"},
           "movieId": {"S": "movie2"},
           "rating": { "N": "4.5"},

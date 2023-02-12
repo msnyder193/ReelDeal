@@ -12,10 +12,10 @@ public class CreateReviewRequest {
     private final String username;
     private final String text;
     private final int rating;
-    private final LocalDate movieDate;
+    private final String movieDate;
 
     public CreateReviewRequest(String id, String movieId, String username,
-                               String text, int rating, LocalDate movieDate) {
+                               String text, int rating, String movieDate) {
         this.id = id;
         this.movieId = movieId;
         this.username = username;
@@ -44,7 +44,7 @@ public class CreateReviewRequest {
         return rating;
     }
 
-    public LocalDate getMovieDate() {
+    public String getMovieDate() {
         return movieDate;
     }
 
@@ -67,7 +67,7 @@ public class CreateReviewRequest {
         private String username;
         private String text;
         private int rating;
-        private LocalDate movieDate;
+        private String movieDate;
 
         public Builder withId(String id) {
             this.id = id;
@@ -94,7 +94,7 @@ public class CreateReviewRequest {
             return this;
         }
 
-        public Builder withMovieDate(LocalDate movieDate) {
+        public Builder withMovieDate(String movieDate) {
             this.movieDate = movieDate;
             return this;
         }

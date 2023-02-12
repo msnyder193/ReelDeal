@@ -1,0 +1,229 @@
+<html>
+<head>
+    <script type="text/javascript" src="assets/createMovie.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/createMovie.css">
+    <title>ReelDeal</title>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1 id="title" class="text-center"> Add Your Most Recent Watch</h1>
+        <p id="description" class="description text-center">
+            Good films make your life better
+        </p>
+    </header>
+    <form id="survey-form">
+        <div class="form-group">
+            <label id="title-label" for="movieTitle">Movie Title</label>
+            <input
+                    type="text"
+                    name="movieTitle"
+                    id="movieTitle"
+                    class="form-control"
+                    placeholder="Enter the name of the movie"
+                    required
+            />
+        </div>
+        <div class="form-group">
+            <label id="description-label" for="description">Description</label>
+            <input
+                    type="text"
+                    name="description"
+                    id="movieDescription"
+                    class="form-control"
+                    placeholder="Enter a short description"
+                    required
+            />
+        <div class="form-group">
+            <label id="releaseDate-label" for="releaseDate">Release Date</label>
+            <input
+                    type="text"
+                    name="releaseDate"
+                    id="releaseDate"
+                    class="form-control"
+                    placeholder="When was the movie released"
+                    required
+            />
+        <div class="form-group">
+            <label id="posterUrl-label" for="posterUrl">Poster URL</label>
+            <input
+                    type="text"
+                    name="posterUrl"
+                    id="posterUrl"
+                    class="form-control"
+                    placeholder="movieposters.com"
+                    required
+            />
+        <div class="form-group">
+            <label id="cast-label" for="cast">Cast Members</label>
+            <input
+                    type="text"
+                    name="cast"
+                    id="cast"
+                    class="form-control"
+                    placeholder="Who stars in the movie"
+                    required
+            />
+        <div class="form-group">
+            <label id="director-label" for="director">Director </label>
+            <input
+                    type="text"
+                    name="director"
+                    id="director"
+                    class="form-control"
+                    placeholder="Who produced the movie"
+                    required
+            />
+        </div>
+        <div class="form-group">
+            <label
+            ><input
+                    name="prefer"
+                    value="front-end-projects"
+                    type="checkbox"
+                    class="input-checkbox"
+            />Action</label
+            >
+            <label>
+                <input
+                        name="prefer"
+                        value="back-end-projects"
+                        type="checkbox"
+                        class="input-checkbox"
+                />Comedy</label
+            >
+            <label
+            ><input
+                    name="prefer"
+                    value="data-visualization"
+                    type="checkbox"
+                    class="input-checkbox"
+            />Drama</label
+            >
+            <label
+            ><input
+                    name="prefer"
+                    value="challenges"
+                    type="checkbox"
+                    class="input-checkbox"
+            />Horror</label
+            >
+            <label
+            ><input
+                    name="prefer"
+                    value="open-source-community"
+                    type="checkbox"
+                    class="input-checkbox"
+            />Mystery</label
+            >
+            <label
+            ><input
+                    name="prefer"
+                    value="gitter-help-rooms"
+                    type="checkbox"
+                    class="input-checkbox"
+            />Romance</label
+            >
+            <label
+            ><input
+                    name="prefer"
+                    value="videos"
+                    type="checkbox"
+                    class="input-checkbox"
+            />Thriller</label
+            >
+            <label
+            ><input
+                    name="prefer"
+                    value="city-meetups"
+                    type="checkbox"
+                    class="input-checkbox"
+            />Sci-Fi</label
+            >
+            <label
+            ><input
+                    name="prefer"
+                    value="wiki"
+                    type="checkbox"
+                    class="input-checkbox"
+            />Western</label
+            >
+            <label
+            ><input
+                    name="prefer"
+                    value="forum"
+                    type="checkbox"
+                    class="input-checkbox"
+            />History</label
+            >
+            <label
+            ><input
+                    name="prefer"
+                    value="additional-courses"
+                    type="checkbox"
+                    class="input-checkbox"
+            />Crime</label
+            >
+            <div class="form-group">
+            <p>Rate this movie</p>
+            <fieldset class="rating">
+                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+            </fieldset>
+            </div>
+        <div class="form-group">
+            <p>Leave a Review</p>
+            <textarea
+                    id="comments"
+                    class="input-textarea"
+                    name="comment"
+                    placeholder="Enter your comment here..."
+            ></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" id="submit" class="submit-button">
+                Submit
+            </button>
+        </div>
+    </form>
+    <div class="form-group">
+        <p>Would you recommend Reel Deal to a friend?</p>
+        <label>
+            <input
+                    name="user-recommend"
+                    value="definitely"
+                    type="radio"
+                    class="input-radio"
+                    checked
+            />Definitely</label
+        >
+        <label>
+            <input
+                    name="user-recommend"
+                    value="maybe"
+                    type="radio"
+                    class="input-radio"
+            />Maybe</label
+        >
+
+        <label
+        ><input
+                name="user-recommend"
+                value="not-sure"
+                type="radio"
+                class="input-radio"
+        />Not sure</label
+        >
+    </div>
+</div>
+</body>
+</html>

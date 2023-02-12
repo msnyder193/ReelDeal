@@ -9,7 +9,7 @@ public class ReviewsModel {
     private final String username;
     private final String text;
     private final int rating;
-    private final LocalDate movieDate;
+    private final String movieDate;
 
     /**
      * Creates a new reviews model
@@ -22,7 +22,7 @@ public class ReviewsModel {
      * @param movieDate the date
      */
 
-    public ReviewsModel(String id, String movieId, String username, String text, int rating, LocalDate movieDate) {
+    public ReviewsModel(String id, String movieId, String username, String text, int rating, String movieDate) {
         this.id = id;
         this.movieId = movieId;
         this.username = username;
@@ -30,7 +30,7 @@ public class ReviewsModel {
         this.rating = rating;
         this.movieDate = movieDate;
     }
-    public LocalDate getMovieDate() {
+    public String getMovieDate() {
         return movieDate;
     }
     public String getId() {
@@ -76,7 +76,7 @@ public class ReviewsModel {
         private String username;
         private String text;
         private int rating;
-        private LocalDate movieDate;
+        private String movieDate;
 
         public Builder withId(String id) {
             this.id = id;
@@ -103,7 +103,7 @@ public class ReviewsModel {
             return this;
         }
 
-        public Builder withMovieDate(LocalDate movieDate) {
+        public Builder withMovieDate(String movieDate) {
             this.movieDate = movieDate;
             return this;
         }
