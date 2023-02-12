@@ -1,0 +1,128 @@
+body {
+background-color: #101316
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333
+}
+nav li {
+  margin: 0 10px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  width: 100px;
+  height: 50px;
+  object-fit: contain;
+}
+
+
+nav a {
+  color: #fff;
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+/* Style for hero section */
+.hero {
+background-image: url('images/reels.jpg');
+background-size: cover;
+background-position: center;
+height: 500px;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+
+/* Style for hero section content */
+.hero h1 {
+color: #fff;
+font-size: 36px;
+margin-bottom: 20px;
+text-align: center;
+}
+
+.hero p {
+color: #fff;
+font-size: 18px;
+margin-bottom: 20px;
+text-align: center;
+}
+
+.hero a {
+background-color: #333;
+color: #fff;
+padding: 10px 20px;
+border-radius: 5px;
+text-decoration: none;
+font-size: 18px;
+text-align: center;
+display: inline-block;
+}
+
+//movie posters
+.movie-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-card {
+  width: calc(20% - 20px);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+}
+
+.l-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 30px;
+
+  @media screen and (max-width: 760px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+.movie-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-bottom: 150%;
+  perspective: 1000px;
+}
