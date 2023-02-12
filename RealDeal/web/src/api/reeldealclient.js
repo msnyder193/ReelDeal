@@ -15,8 +15,8 @@ export default class ReelDealService extends BindingClass {
     constructor(props = {}) {
         super();
 
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout', 'getAllWorkoutPlans',
-         'getWorkoutPlan', 'getAllExercises', 'getExercise', 'createExercise', 'updateExercise'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout', 'createMovie',
+         'createReview', 'getAllMovies', 'getAllMovieReviews', 'getMovie', 'getReview', 'updateMovie'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -72,93 +72,83 @@ export default class ReelDealService extends BindingClass {
         return await this.authenticator.getUserToken();
     }
 
-    /**
-     * Get all the workout plans on the list.
-     * @param errorCallback (Optional) A function to execute if the call fails.
-     * @returns The list of workout plans.
-     */
-
-     async getAllWorkoutPlans(errorCallback) {
+     async getAllMovies(errorCallback) {
             try {
-                const response = await this.axiosClient.get(`workoutplan`);
-                return response.data.workoutPlanList;
+                const response = await this.axiosClient.get(`movies/`);
+                return response.data.movieModelSet;
             } catch (error) {
                 this.handleError(error, errorCallback)
             }
       }
 
 
-    /**
-       * Gets the workout plan info for the given ID.
-       * @param workoutPlanId Unique identifier for an workout
-       * @param errorCallback (Optional) A function to execute if the call fails.
-       * @returns The workout plan's data.
-       */
-      async getWorkoutPlan(workoutPlanId, errorCallback) {
+      async getAllMovieReviews(movieId, errorCallback) {
           try {
-              const response = await this.axiosClient.get(`workoutplan/${workoutPlanId}`);
-              return response.data.workoutPlan;
+              const response = await this.axiosClient.get(`reviews/${movieId}`);
+              return response.data.reviewModelSet;
           } catch (error) {
               this.handleError(error, errorCallback)
           }
       }
 
 
-    /**
-     * Get all the exercises on the list.
-     * @param errorCallback (Optional) A function to execute if the call fails.
-     * @returns The list of exercises.
-     */
-
-     async getAllExercises(errorCallback) {
+     async getMovie(id, errorCallback) {
             try {
-                const response = await this.axiosClient.get(`exercises`);
-                return response.data.exerciseList;
+                const response = await this.axiosClient.get(`movies/${id}`);
+                return response.data.movies;
             } catch (error) {
                 this.handleError(error, errorCallback)
             }
       }
 
-      /**
-         * Gets the exercise info for the given ID.
-         * @param exerciseId Unique identifier for an workout
-         * @param errorCallback (Optional) A function to execute if the call fails.
-         * @returns The exercise's data.
-         */
-        async getExercise(exerciseId, errorCallback) {
+        async getReview(id, errorCallback) {
             try {
-                const response = await this.axiosClient.get(`exercises/${exerciseId}`);
-                return response.data.exercise;
+                const response = await this.axiosClient.get(`reviews/${id}`);
+                return response.data.reviews;
             } catch (error) {
                 this.handleError(error, errorCallback)
             }
         }
 
-    /**
-     * Create a new exercise.
-     * @param payload object with exercise data
-     * @param errorCallback (Optional) A function to execute if the call fails.
-     * @returns The exercise that has been created.
-     */
-    async createExercise(payload, errorCallback) {
+    async createMovie(title, description, releaseDate, posterUrl,
+    genres, cast, director, errorCallback) {
         try {
-            const response = await this.axiosClient.post(`exercises`, payload);
-            return response.data.exercise;
+            const response = await this.axiosClient.post(`movies`, {
+                title: title,
+                description: description,
+                releaseDate: releaseDate,
+                posterUrl: posterUrl,
+                genres: genres,
+                cast: cast,
+                director: director
+            });
+            return response.data.movies;
         } catch (error) {
             this.handleError(error, errorCallback)
         }
     }
 
 
-    async updateExercise(exercise, errorCallback) {
+    async createReview(text,rating, errorCallback) {
          try {
-             const response = await this.axiosClient.put(`exercises/${exercise.exerciseId}`, exercise);
-             return response.data.exerciseModel;
+             const response = await this.axiosClient.post(`reviews`, {
+                text: text,
+                rating: rating
+             });
+             return response.data.reviews;
          } catch (error) {
              this.handleError(error, errorCallback)
          }
      }
 
+    async updateMovie(movies, errorCallback) {
+            try {
+                const response = await this.client.put(`movies/${movies.id}`, movies);
+                return response.data.moviesModel;
+            } catch (error) {
+                this.handleError(error, errorCallback)
+            }
+        }
     /**
      * Helper method to log the error and run any error functions.
      * @param error The error received from the server.
