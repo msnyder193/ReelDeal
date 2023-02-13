@@ -12,7 +12,6 @@ class Index extends BindingClass {
     }
 
      async clientLoaded() {
-        document.getElementById('l-container').innerText = "(Loading Movies...)";
         const moviesList = await this.client.getAllMovies();
         this.dataStore.set('moviesList', moviesList);
      }
@@ -31,13 +30,18 @@ class Index extends BindingClass {
             return;
         }
 
-        let movieUrl = '';
+        let container = document.getElementById('movie-container');
         for (let i = 0; i < 4; i++) {
         console.log("movie list: " + moviesList[0].posterUrl);
-        movieUrl+= '<div class="movie-card"><div class="movie-card__cover" style="background-image: url('+ moviesList[i].posterUrl +');"></div></div>'
+        let movieUrl= '<img src=' + moviesList[i].posterUrl + ' alt="Movie 1"><h2>'+ moviesList[i].title +'</h2>'
+        let button = document.createElement("div");
+        button.innerHTML = movieUrl
+        button.classList.add("card");
+        button.addEventListener("click", () => {
+        window.location.href = 'viewMovie.html?movieId=' + moviesList[i].id;
+         });
+        container.append(button);
         }
-
-        document.getElementById('l-container').innerHTML = movieUrl;
 
      }
 
