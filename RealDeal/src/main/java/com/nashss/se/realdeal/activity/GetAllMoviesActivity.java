@@ -31,6 +31,7 @@ public class GetAllMoviesActivity {
 
         for (Movies movie : moviesList) {
             MoviesModel moviesModel = new ModelConverter().toMoviesModel(movie);
+            moviesModelList.add(moviesModel);
 
         }
         return GetAllMoviesResult.builder()

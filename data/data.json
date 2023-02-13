@@ -5,7 +5,7 @@
         "Item": {
           "id": {"S": "movie1"},
           "title" : {"S": "kill Bill "},
-          "releaseDate": {"N": "2003"},
+          "releaseDate": {"S": "2003"},
           "posterUrl": {"S": "web/static_assets/images/killbill.png"},
           "director": {"S": "Quentin Tarantino "},
           "cast": {"S": "Uma Thurman, David Carradine, Daryl Hannah"},
@@ -19,7 +19,7 @@
           "id": {"S": "movie2"},
           "title" : {"S": "The Godfather"},
           "posterUrl" : {"S": "web/static_assets/images/godfather.png"},
-          "releaseDate": {"N": "1972"},
+          "releaseDate": {"S": "1972"},
           "director": {"S": "Francis Ford Coppola"},
           "cast": {"S": "Marlon Brando, Al Pacino, James Caan"},
           "genres": {"S": "Drama, Crime"}
@@ -31,7 +31,7 @@
         "Item": {
           "id": {"S": "movie3"},
           "title" : {"S": "Pulp Fiction"},
-          "releaseDate": {"N": "1994"},
+          "releaseDate": {"S": "1994"},
           "posterUrl" : {"S": "web/static_assets/images/pulpfiction.png"},
           "director": {"S": "Quentin Tarantino "},
           "cast": {"S": "John Travolta, Uma Thurman, Samuel L Jackson"},
@@ -44,7 +44,7 @@
         "Item": {
           "id": {"S": "movie4"},
           "title" : {"S": "Reservoir Dogs"},
-          "releaseDate": {"N": "2008"},
+          "releaseDate": {"S": "2008"},
           "posterUrl": {"S":"web/static_assets/images/reservoirdogs.png"},
           "director": {"S": "Quentin Tarantino"},
           "cast": {"S": "Harvey Keitel , Tim Roth, Michael Madsen"},

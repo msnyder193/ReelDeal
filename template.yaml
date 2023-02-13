@@ -256,7 +256,7 @@ Resources:
     Properties:
       Role: !GetAtt AccessDynamoDBTablesRole.Arn
       CodeUri: RealDeal
-      Handler: com.nashss.se.realdeal.lambda.GetMovieLambda::handleRequest
+      Handler: com.nashss.se.realdeal.lambda.GetAllMoviesLambda::handleRequest
       Runtime: java11
       Architectures:
         - x86_64
@@ -276,7 +276,7 @@ Resources:
       Properties:
         Role: !GetAtt AccessDynamoDBTablesRole.Arn
         CodeUri: RealDeal
-        Handler: com.nashss.se.realdeal.lambda.GetMovieLambda::handleRequest
+        Handler: com.nashss.se.realdeal.lambda.UpdateMovieLambda::handleRequest
         Runtime: java11
         Architectures:
           - x86_64
@@ -348,7 +348,7 @@ Resources:
         ReelDeal:
           Type: Api
           Properties:
-            Path: /movies/{movieId}/reviews
+            Path: /movies/reviews/{movieId}
             Method: get
 
   MoviesTable:
