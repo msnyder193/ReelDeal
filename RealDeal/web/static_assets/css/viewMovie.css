@@ -1,0 +1,23 @@
+body {
+background-color: #101316
+}
+.movie-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.poster img {
+  width: 40%;
+}
+
+.reviews {
+  list-style: none;
+  padding: 0;
+}
+
+.review {
+  margin-bottom: 20px;
+  border-bottom: 1px solid gray;
+  padding-bottom: 20px;
+}

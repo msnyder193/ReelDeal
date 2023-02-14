@@ -29,7 +29,7 @@ public class GetMovieResult {
     public static class Builder {
         private Movies singleMovie;
 
-        public GetMovieResult.Builder withId(Movies singleMovie) {
+        public GetMovieResult.Builder withMovie(Movies singleMovie) {
             this.singleMovie = singleMovie;
             return this;
         }

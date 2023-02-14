@@ -1,6 +1,5 @@
 package com.nashss.se.realdeal.models;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class ReviewsModel {
@@ -8,8 +7,8 @@ public class ReviewsModel {
     private final String movieId;
     private final String username;
     private final String text;
-    private final int rating;
-    private final LocalDate movieDate;
+    private final double rating;
+    private final String movieDate;
 
     /**
      * Creates a new reviews model
@@ -22,7 +21,7 @@ public class ReviewsModel {
      * @param movieDate the date
      */
 
-    public ReviewsModel(String id, String movieId, String username, String text, int rating, LocalDate movieDate) {
+    public ReviewsModel(String id, String movieId, String username, String text, double rating, String movieDate) {
         this.id = id;
         this.movieId = movieId;
         this.username = username;
@@ -30,7 +29,7 @@ public class ReviewsModel {
         this.rating = rating;
         this.movieDate = movieDate;
     }
-    public LocalDate getMovieDate() {
+    public String getMovieDate() {
         return movieDate;
     }
     public String getId() {
@@ -49,7 +48,7 @@ public class ReviewsModel {
         return text;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
@@ -75,8 +74,8 @@ public class ReviewsModel {
         private String movieId;
         private String username;
         private String text;
-        private int rating;
-        private LocalDate movieDate;
+        private double rating;
+        private String movieDate;
 
         public Builder withId(String id) {
             this.id = id;
@@ -98,12 +97,12 @@ public class ReviewsModel {
             return this;
         }
 
-        public Builder withRating(int rating) {
+        public Builder withRating(double rating) {
             this.rating = rating;
             return this;
         }
 
-        public Builder withMovieDate(LocalDate movieDate) {
+        public Builder withMovieDate(String movieDate) {
             this.movieDate = movieDate;
             return this;
         }

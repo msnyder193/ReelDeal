@@ -1,6 +1,7 @@
 package dynamo;
 
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
@@ -41,7 +42,7 @@ public class MoviesDAOTest {
         Movies movie = new Movies();
         movie.setId(id);
         movie.setTitle("The Godfather");
-        movie.setGenres(List.of("Crime", "Action"));
+        movie.setGenres(Set.of("Crime", "Action"));
         movie.setDirector("Francis Ford Coppola");
         movie.setDescription("The Godfather");
 
@@ -51,7 +52,7 @@ public class MoviesDAOTest {
         verify(metricsPublisher).addCount(MetricsConstants.GETMOVIE_MOVIENOTFOUND_COUNT, 0);
         Assertions.assertEquals("123", result.getId());
         Assertions.assertEquals("The Godfather", result.getTitle());
-        Assertions.assertEquals(List.of("Crime", "Action"), result.getGenres());
+        Assertions.assertEquals(Set.of("Crime", "Action"), result.getGenres());
         Assertions.assertEquals("Francis Ford Coppola", result.getDirector());
     }
 

@@ -1,6 +1,7 @@
 package com.nashss.se.realdeal.activity.requests;
 
 import java.util.List;
+import java.util.Set;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
@@ -13,12 +14,12 @@ public class CreateMovieRequest {
     private final String description;
     private final String releaseDate;
     private final String posterUrl;
-    private final List<String> genres;
-    private final List<String> cast;
+    private final Set<String> genres;
+    private final Set<String> cast;
     private final String director;
 
     public CreateMovieRequest(String id, String title, String description, String releaseDate, String posterUrl,
-                              List<String> genres, List<String> cast, String director) {
+                              Set<String> genres, Set<String> cast, String director) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -49,11 +50,11 @@ public class CreateMovieRequest {
         return posterUrl;
     }
 
-    public List<String> getGenres() {
+    public Set<String> getGenres() {
         return genres;
     }
 
-    public List<String> getCast() {
+    public Set<String> getCast() {
         return cast;
     }
 
@@ -85,8 +86,8 @@ public class CreateMovieRequest {
         private String description;
         private String releaseDate;
         private String posterUrl;
-        private List<String> genres;
-        private List<String> cast;
+        private Set<String> genres;
+        private Set<String> cast;
         private String director;
 
         public Builder withId(String id) {
@@ -114,12 +115,12 @@ public class CreateMovieRequest {
             return this;
         }
 
-        public Builder withGenres(List<String> genres) {
+        public Builder withGenres(Set<String> genres) {
             this.genres = genres;
             return this;
         }
 
-        public Builder withCast(List<String> cast) {
+        public Builder withCast(Set<String> cast) {
             this.cast = cast;
             return this;
         }

@@ -10,7 +10,7 @@ import Authenticator from "./authenticator";
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Mix-ins
  * https://javascript.info/mixins
   */
-export default class ReelDealService extends BindingClass {
+export default class ReelDealClient extends BindingClass {
 
     constructor(props = {}) {
         super();
@@ -74,8 +74,8 @@ export default class ReelDealService extends BindingClass {
 
      async getAllMovies(errorCallback) {
             try {
-                const response = await this.axiosClient.get(`movies/`);
-                return response.data.movieModelSet;
+                const response = await this.axiosClient.get(`movies`);
+                return response.data.moviesModelList;
             } catch (error) {
                 this.handleError(error, errorCallback)
             }
@@ -84,8 +84,8 @@ export default class ReelDealService extends BindingClass {
 
       async getAllMovieReviews(movieId, errorCallback) {
           try {
-              const response = await this.axiosClient.get(`reviews/${movieId}`);
-              return response.data.reviewModelSet;
+              const response = await this.axiosClient.get(`reviews/allmovies/${movieId}`);
+              return response.data.reviewsModelList;
           } catch (error) {
               this.handleError(error, errorCallback)
           }
@@ -95,7 +95,7 @@ export default class ReelDealService extends BindingClass {
      async getMovie(id, errorCallback) {
             try {
                 const response = await this.axiosClient.get(`movies/${id}`);
-                return response.data.movies;
+                return response.data.singleMovie;
             } catch (error) {
                 this.handleError(error, errorCallback)
             }

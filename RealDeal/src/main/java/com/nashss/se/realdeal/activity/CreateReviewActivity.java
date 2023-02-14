@@ -30,7 +30,7 @@ public class CreateReviewActivity {
         String username = createReviewRequest.getUsername();
         String text = createReviewRequest.getText();
         int rating = createReviewRequest.getRating();
-        LocalDate movieDate = createReviewRequest.getMovieDate();
+        String movieDate = createReviewRequest.getMovieDate();
 
         Reviews review = new Reviews();
         review.setId(id);

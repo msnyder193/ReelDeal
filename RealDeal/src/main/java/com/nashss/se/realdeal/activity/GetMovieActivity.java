@@ -26,7 +26,7 @@ public class GetMovieActivity {
         }
 
         return GetMovieResult.builder()
-                .withId(singleMovie)
+                .withMovie(singleMovie)
                 .build();
 
     }

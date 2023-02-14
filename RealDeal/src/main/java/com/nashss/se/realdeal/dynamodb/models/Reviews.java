@@ -3,12 +3,10 @@ package com.nashss.se.realdeal.dynamodb.models;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexRangeKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverted;
 import com.nashss.se.realdeal.converter.LocalDateConverter;
 
-import java.time.LocalDate;
 import java.util.Objects;
 @DynamoDBTable(tableName = "Reviews")
 public class Reviews {
@@ -16,8 +14,8 @@ public class Reviews {
     private String movieId;
     private String username;
     private String text;
-    private int rating;
-    private LocalDate movieDate;
+    private double rating;
+    private String movieDate;
 
     @DynamoDBHashKey(attributeName = "id")
     public String getId() {
@@ -57,21 +55,20 @@ public class Reviews {
         this.text = text;
     }
     @DynamoDBAttribute(attributeName = "rating")
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 
     @DynamoDBAttribute(attributeName = "movieDate")
-    @DynamoDBTypeConverted(converter = LocalDateConverter.class)
-    public LocalDate getMovieDate() {
+    public String getMovieDate() {
         return movieDate;
     }
 
-    public void setMovieDate(LocalDate date) {
+    public void setMovieDate(String date) {
         this.movieDate = date;
     }
 

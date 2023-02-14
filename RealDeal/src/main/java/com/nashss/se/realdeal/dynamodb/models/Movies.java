@@ -3,13 +3,11 @@ package com.nashss.se.realdeal.dynamodb.models;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexRangeKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverted;
-import com.nashss.se.realdeal.converter.ListConverter;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @DynamoDBTable(tableName = "Movies")
 public class Movies {
@@ -18,8 +16,8 @@ public class Movies {
     private String description;
     private String releaseDate;
     private String posterUrl;
-    private List<String> genres;
-    private List<String> cast;
+    private Set<String> genres;
+    private Set<String> cast;
     private String director;
 
     @DynamoDBHashKey(attributeName = "id")
@@ -64,21 +62,19 @@ public class Movies {
         this.posterUrl = posterUrl;
     }
     @DynamoDBAttribute(attributeName = "genres")
-    @DynamoDBTypeConverted(converter = ListConverter.class)
-    public List<String> getGenres() {
+    public Set<String> getGenres() {
         return genres;
     }
 
-    public void setGenres(List<String> genres) {
+    public void setGenres(Set<String> genres) {
         this.genres = genres;
     }
     @DynamoDBAttribute(attributeName = "cast")
-    @DynamoDBTypeConverted(converter = ListConverter.class)
-    public List<String> getCast() {
+    public Set<String> getCast() {
         return cast;
     }
 
-    public void setCast(List<String> cast) {
+    public void setCast(Set<String> cast) {
         this.cast = cast;
     }
     @DynamoDBAttribute(attributeName = "director")

@@ -3,6 +3,7 @@ package com.nashss.se.realdeal.activity;
 import javax.inject.Inject;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 import com.nashss.se.realdeal.activity.requests.CreateMovieRequest;
@@ -30,8 +31,8 @@ public class CreateMovieActivity {
         String description = createMovieRequest.getDescription();
         String releaseDate = createMovieRequest.getReleaseDate();
         String posterUrl = createMovieRequest.getPosterUrl();
-        List<String> genres = createMovieRequest.getGenres();
-        List<String> cast = createMovieRequest.getCast();
+        Set<String> genres = createMovieRequest.getGenres();
+        Set<String> cast = createMovieRequest.getCast();
         String director = createMovieRequest.getDirector();
 
         Movies movie = new Movies();
