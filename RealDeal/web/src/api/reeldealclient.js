@@ -84,7 +84,7 @@ export default class ReelDealClient extends BindingClass {
 
       async getAllMovieReviews(movieId, errorCallback) {
           try {
-              const response = await this.axiosClient.get(`reviews/${movieId}`);
+              const response = await this.axiosClient.get(`reviews/allmovies/${movieId}`);
               return response.data.reviewsModelList;
           } catch (error) {
               this.handleError(error, errorCallback)

@@ -16,11 +16,13 @@ class ViewMovie extends BindingClass {
      async clientLoaded() {
          let url = new URL(window.location.href);
          let id = url.searchParams.get("movieId");
+         let movieId = url.searchParams.get("movieId");
          this.dataStore.set('id', id);
+         this.dataStore.set('movieId', movieId);
          const singleMovie = await this.client.getMovie(id);
          this.dataStore.set('singleMovie', singleMovie);
-         const movieReviews = await this.client.getAllMovieReviews(id);
-         this.dataStore.set('movieReviews', movieReviews);
+         const reviewsModelList = await this.client.getAllMovieReviews(movieId);
+         this.dataStore.set('reviewsModelList', reviewsModelList);
      }
 
     async mount() {
@@ -50,22 +52,33 @@ class ViewMovie extends BindingClass {
          let cast = '';
          if(movie.genres) {
          for (let movieGenre of movie.genres) {
-         genreContainer.textContent += movieGenre + '\n';
+         genre += movieGenre + '\n';
          }
          }
          if(movie.cast) {
          for (let castMember of movie.cast) {
-         castContainer.textContent += castMember + '\n';
+         cast += castMember + '\n';
          }
          }
-         posterContainer.innerHTML += poster;
-         titleContainer.textContent += title;
-         directorContainer.textContent += director;
+         posterContainer.innerHTML = poster;
+         titleContainer.textContent = title;
+         directorContainer.textContent = director;
+         genreContainer.innerText = genreContainer.innerText +genre;
+         castContainer.textContent = castContainer.innerText +cast;
     }
 
     async displayReviews() {
-                <h2>Review by John Doe</h3>
-                <p>This movie was amazing! I highly recommend it to anyone who loves action films. The cast was fantastic and the special effects were top-notch. 9/10 would watch again.</p>
+    let movieReviews = this.dataStore.get('reviewsModelList');
+    if(!movieReviews) {
+    return;
+    }
+    console.log(movieReviews);
+    let reviewContainer = document.getElementById('review-container');
+    let reviewText = '';
+    for (let singleReview of movieReviews) {
+        reviewText += '<h3>Review By: '+singleReview.username+'</h3><h2>'+singleReview.rating+'</h2><p>'+singleReview.text+'</p>'
+    }
+    reviewContainer.innerHTML = reviewText;
     }
 }
  const main = async () => {

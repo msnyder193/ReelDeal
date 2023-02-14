@@ -11,7 +11,7 @@ public class GetAllMovieReviewsResult {
         this.reviewsModelList = reviewsModelList;
     }
 
-    public List<ReviewsModel> getReviewsModelSet() {
+    public List<ReviewsModel> getReviewsModelList() {
         return reviewsModelList;
     }
 

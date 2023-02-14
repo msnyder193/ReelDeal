@@ -348,7 +348,7 @@ Resources:
         ReelDeal:
           Type: Api
           Properties:
-            Path: /movies/reviews/{movieId}
+            Path: /reviews/allmovies/{movieId}
             Method: get
 
   MoviesTable:
