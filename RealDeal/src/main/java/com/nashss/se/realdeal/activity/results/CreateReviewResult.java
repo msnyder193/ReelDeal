@@ -25,7 +25,7 @@ public class CreateReviewResult {
     }
 
     public static class Builder {
-        private ReviewsModel    reviewsModel;
+        private ReviewsModel reviewsModel;
 
         public Builder withReviewsModel(ReviewsModel reviewsModel) {
             this.reviewsModel = reviewsModel;
