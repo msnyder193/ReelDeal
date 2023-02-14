@@ -76,8 +76,8 @@ public class CreateMovieRequest {
             '}';
     }
 
-    public static MoviesModel.Builder builder() {
-        return new MoviesModel.Builder();
+    public static Builder builder() {
+        return new Builder();
     }
     @JsonPOJOBuilder
     public static class Builder {

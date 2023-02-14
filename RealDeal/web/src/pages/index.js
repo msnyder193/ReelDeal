@@ -23,6 +23,10 @@ class Index extends BindingClass {
     }
 
      async displayMovies() {
+     let add = document.getElementById('add-reel');
+     add.addEventListener('click', () => {
+     window.location.href = 'createMovie.html'
+     });
      console.log("in the method");
         const moviesList = this.dataStore.get('moviesList');
         console.log("before movies" + moviesList);

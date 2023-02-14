@@ -60,14 +60,17 @@ class ViewMovie extends BindingClass {
          cast += castMember + '\n';
          }
          }
+         console.log(cast);
+         console.log(genre);
          posterContainer.innerHTML = poster;
          titleContainer.textContent = title;
          directorContainer.textContent = director;
-         genreContainer.innerText = genreContainer.innerText +genre;
-         castContainer.textContent = castContainer.innerText +cast;
+         genreContainer.innerText = 'Genre: '+genre;
+         castContainer.textContent = 'Cast:'+cast;
     }
 
     async displayReviews() {
+
     let movieReviews = this.dataStore.get('reviewsModelList');
     if(!movieReviews) {
     return;
