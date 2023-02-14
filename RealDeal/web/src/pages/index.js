@@ -35,7 +35,7 @@ class Index extends BindingClass {
         console.log("movie list: " + moviesList[0].posterUrl);
         let movieUrl= '<img src=' + moviesList[i].posterUrl + ' alt="Movie 1"><h2>'+ moviesList[i].title +'</h2>'
         let button = document.createElement("div");
-        button.innerHTML = movieUrl
+        button.innerHTML = movieUrl;
         button.classList.add("card");
         button.addEventListener("click", () => {
         window.location.href = 'viewMovie.html?movieId=' + moviesList[i].id;

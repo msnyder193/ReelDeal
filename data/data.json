@@ -6,10 +6,10 @@
           "id": {"S": "movie1"},
           "title" : {"S": "kill Bill "},
           "releaseDate": {"S": "2003"},
-          "posterUrl": {"S": "web/static_assets/images/killbill.png"},
+          "posterUrl": {"S": "/images/killbill.png"},
           "director": {"S": "Quentin Tarantino "},
-          "cast": {"S": "Uma Thurman, David Carradine, Daryl Hannah"},
-          "genres": {"S": "Action, Crime, Drama"}
+          "cast": {"SS": ["Marlon Brando", "Al Pacino", "James Caan"] },
+          "genres": {"SS": ["Drama", "Crime"]}
         }
       }
     },
@@ -18,11 +18,11 @@
         "Item": {
           "id": {"S": "movie2"},
           "title" : {"S": "The Godfather"},
-          "posterUrl" : {"S": "web/static_assets/images/godfather.png"},
+          "posterUrl" : {"S": "/images/godfather.png"},
           "releaseDate": {"S": "1972"},
           "director": {"S": "Francis Ford Coppola"},
-          "cast": {"S": "Marlon Brando, Al Pacino, James Caan"},
-          "genres": {"S": "Drama, Crime"}
+          "cast": {"SS": [ "Marlon Brando", "Al Pacino",  "James Caan"] },
+          "genres": {"SS": [ "Drama", "Crime"]}
         }
       }
     },
@@ -32,10 +32,10 @@
           "id": {"S": "movie3"},
           "title" : {"S": "Pulp Fiction"},
           "releaseDate": {"S": "1994"},
-          "posterUrl" : {"S": "web/static_assets/images/pulpfiction.png"},
+          "posterUrl" : {"S": "/images/pulpfiction.png"},
           "director": {"S": "Quentin Tarantino "},
-          "cast": {"S": "John Travolta, Uma Thurman, Samuel L Jackson"},
-          "genres": {"S": "Drama, Crime"}
+          "cast": {"SS": ["Marlon Brando", "Al Pacino",  "James Caan"] },
+          "genres": {"SS": ["Drama", "Crime"]}
         }
       }
     },
@@ -45,10 +45,10 @@
           "id": {"S": "movie4"},
           "title" : {"S": "Reservoir Dogs"},
           "releaseDate": {"S": "2008"},
-          "posterUrl": {"S":"web/static_assets/images/reservoirdogs.png"},
+          "posterUrl": {"S":"/images/reservoirdogs.png"},
           "director": {"S": "Quentin Tarantino"},
-          "cast": {"S": "Harvey Keitel , Tim Roth, Michael Madsen"},
-          "genres": {"S": "Action, Crime, Thriller"}
+          "cast": {"SS": ["Marlon Brando", "Al Pacino", "James Caan"] },
+          "genres": {"SS": [ "Drama","Crime"]}
         }
       }
     }
