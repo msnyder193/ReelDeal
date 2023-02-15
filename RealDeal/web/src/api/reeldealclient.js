@@ -131,9 +131,15 @@ export default class ReelDealClient extends BindingClass {
 
     async createReview(text,rating, errorCallback) {
          try {
+             const token = await this.getTokenOrThrow("only authenticated users can create");
              const response = await this.axiosClient.post(`reviews`, {
+
                 text: text,
                 rating: rating
+             }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
              });
              return response.data.reviews;
          } catch (error) {

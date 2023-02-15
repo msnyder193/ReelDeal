@@ -28,10 +28,25 @@ class Index extends BindingClass {
     const posterUrl = document.getElementById('posterUrl');
     const cast = document.getElementById('cast');
     const director = document.getElementById('director');
-    const genres = getCheckBoxValue();
+    const genres = '';
     const text = document.getElementById('comments');
-    const rating = getRating();
+    const rating = 0;
     const submit = document.getElementById('submit');
+
+    submit.addEventListener('click', (event) => {
+        event.preventDefault();
+        title.value;
+        description.value;
+        releaseDate.value;
+        posterUrl.value;
+        cast.value;
+        director.value;
+        genres.getCheckedBoxValue();
+        text.value;
+        rating.getRating();
+        this.client.createReview(text,rating);
+        this.client.createMovie(title,description,releaseDate,posterUrl,genres,cast,director);
+    })
     }
 
     getCheckBoxValue() {
