@@ -20,7 +20,7 @@ public class CreateReviewLambda extends LambdaActivityRunner<CreateReviewRequest
                         .withRating(unauthenticatedRequest.getRating())
                         .withMovieId(unauthenticatedRequest.getMovieId())
                         .withId(unauthenticatedRequest.getId())
-                        .withUsername(claims.get("username"))
+                        .withUsername(claims.get("email"))
                         .build());
             },
 
