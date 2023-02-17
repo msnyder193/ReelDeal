@@ -2,12 +2,11 @@ import ReelDealClient from '../api/reeldealclient';
 import Header from '../components/header';
 import BindingClass from "../util/bindingClass";
 import DataStore from "../util/DataStore";
-class Index extends BindingClass {
+class CreateMovie extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'mount', 'submitForm'], this);
+        this.bindClassMethods(['clientLoaded', 'mount', 'submitForm' ], this);
         this.dataStore = new DataStore();
-        this.dataStore.addChangeListener(this.displayMovies);
         this.header = new Header(this.dataStore);
     }
 
@@ -18,20 +17,30 @@ class Index extends BindingClass {
     async mount() {
         this.header.addHeaderToPage();
         this.client = new ReelDealClient();
+        document.getElementById('submit').addEventListener('click', this.submitForm);
         await this.clientLoaded();
+
     }
 
     async submitForm() {
-    const title = document.getElementById('movieTitle');
-    const description = document.getElementById('movieDescription');
-    const releaseDate = document.getElementById('ReleaseDate');
-    const posterUrl = document.getElementById('posterUrl');
-    const cast = document.getElementById('cast');
-    const director = document.getElementById('director');
-    const genres = getCheckBoxValue();
-    const text = document.getElementById('comments');
-    const rating = getRating();
+    const title = document.getElementById('movieTitle').value;
+    const description = document.getElementById('movieDescription').value;
+    const releaseDate = document.getElementById('releaseDate').value;
+    const posterUrl = document.getElementById('posterUrl').value;
+    const cast = document.getElementById('cast').value.split(',');
+    const director = document.getElementById('director').value;
+    const genres = this.getCheckBoxValue();
+    const text = document.getElementById('comments').value;
+    const rating = this.getRating();
     const submit = document.getElementById('submit');
+
+    if (!title || !description || !releaseDate || !posterUrl || !cast || !director || !genres || !text || !rating) {
+        alert("please fill in all required fields");
+        return;
+    }
+    await this.client.createMovie(title, description, releaseDate, posterUrl, genres, cast, director);
+    await this.client.createReview(text, rating);
+
     }
 
     getCheckBoxValue() {
@@ -44,70 +53,70 @@ class Index extends BindingClass {
       var l7 = document.getElementById("thriller");
       var l8 = document.getElementById("scifi");
       var l9 = document.getElementById("western");
-      var l10 = document.getElementById("hisory");
+      var l10 = document.getElementById("history");
       var l11 = document.getElementById("crime");
 
-      var res=" ";
-      if (l1.checked == true){
-        var pl1 = document.getElementById("action").value;
-        res = pl1 + ",";
+      var res= [];
+      if (l1.checked){
+        var pl1 = document.getElementById("action").id;
+        res.push(pl1);
       }
-      else if (l2.checked == true){
-        var pl2 = document.getElementById("comedy").value;
-        res = res + pl2 + ",";
+       if (l2.checked){
+        var pl2 = document.getElementById("comedy").id;
+        res.push(pl2);
       }
-      else if (l3.checked == true){
-      document.write(res);
-        var pl3 = document.getElementById("drama").value;
-        res = res + pl3 + ",";
+      if (l3.checked){
+        var pl3 = document.getElementById("drama").id;
+        res.push(pl3);
       }
-      else if (l4.checked == true){
-        var pl4 = document.getElementById("horror").value;
-        res = res + pl4 + ",";
+      if (l4.checked){
+        var pl4 = document.getElementById("horror").id;
+        res.push(pl4);
       }
-      else if (l5.checked == true){
-        var pl5 = document.getElementById("mystery").value;
-        res = res + pl5 + ",";
+      if (l5.checked){
+        var pl5 = document.getElementById("mystery").id;
+        res.push(pl5);
       }
-      else if (l6.checked == true){
-        var pl6 = document.getElementById("romance").value;
-        res = res + pl6;
-      } else if (l7.checked == true){
-        var pl7 = document.getElementById("thriller").value;
-        res = pl7 + ",";
+      if (l6.checked){
+        var pl6 = document.getElementById("romance").id;
+        res.push(pl6);
+      } if (l7.checked){
+        var pl7 = document.getElementById("thriller").id;
+        res.push(pl7);
       }
-      else if (l8.checked == true){
-        var pl8 = document.getElementById("scifi").value;
-        res = res + pl8 + ",";
+      if (l8.checked){
+        var pl8 = document.getElementById("scifi").id;
+        res.push(pl8);
       }
-      else if (l9.checked == true){
-      document.write(res);
-        var pl9 = document.getElementById("western").value;
-        res = res + pl9 + ",";
+      if (l9.checked){
+        var pl9 = document.getElementById("western").id;
+        res.push(pl9);
       }
-      else if (l10.checked == true){
-        var pl10 = document.getElementById("history").value;
-        res = res + pl10 + ",";
+      if (l10.checked){
+        var pl10 = document.getElementById("history").id;
+        res.push(pl10);
       }
-      else if (l11.checked == true){
-        var pl11 = document.getElementById("crime").value;
-        res = res + pl11 + ",";
+      if (l11.checked){
+        var pl11 = document.getElementById("crime").id;
+        res.push(pl11);
       }
-      else {
+      if (res.length == 0){
       return null;
       }
       return res;
         }
 
         getRating() {
-            var rating = document.getElementByName("rating");
+            var rating = document.getElementsByName("rating");
             var res = 0;
-            if (!rating.checked) {
+            if (rating.length == 0) {
             return;
             }
-            for (var rate of rating.checked) {
-                if(parseInt(rate.value) > res) {
-                    res = parseInt(rate.value);
+            for (var rate of rating) {
+                if (rate.checked) {
+                    if(parseInt(rate.value) > res) {
+                        res = parseFloat(rate.value);
+                    }
                 }
             }
             return res;

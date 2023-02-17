@@ -6,13 +6,13 @@
 </head>
 <body>
 <div class="container">
-    <header class="header">
+    <header class="header" id="header">
         <h1 id="title" class="text-center"> Add Your Most Recent Watch</h1>
         <p id="description" class="description text-center">
             Good films make your life better
         </p>
     </header>
-    <form id="survey-form">
+    <form id="survey-form" onsubmit="return false">
         <div class="form-group">
             <label id="title-label" for="movieTitle">Movie Title</label>
             <input
@@ -34,6 +34,7 @@
                     placeholder="Enter a short description"
                     required
             />
+        </div>
         <div class="form-group">
             <label id="releaseDate-label" for="releaseDate">Release Date</label>
             <input
@@ -54,6 +55,7 @@
                     placeholder="movieposters.com"
                     required
             />
+            </div>
         <div class="form-group">
             <label id="cast-label" for="cast">Cast Members</label>
             <input
@@ -64,6 +66,7 @@
                     placeholder="Who stars in the movie"
                     required
             />
+            </div>
         <div class="form-group">
             <label id="director-label" for="director">Director </label>
             <input
@@ -80,7 +83,6 @@
             ><input
                     name="prefer"
                     id="action"
-                    value="front-end-projects"
                     type="checkbox"
                     class="input-checkbox"
             />Action</label
@@ -89,7 +91,6 @@
                 <input
                         name="prefer"
                         id="comedy"
-                        value="back-end-projects"
                         type="checkbox"
                         class="input-checkbox"
                 />Comedy</label
@@ -98,7 +99,6 @@
             ><input
                     name="prefer"
                     id="drama"
-                    value="data-visualization"
                     type="checkbox"
                     class="input-checkbox"
             />Drama</label
@@ -107,7 +107,6 @@
             ><input
                     name="prefer"
                     id="horror"
-                    value="challenges"
                     type="checkbox"
                     class="input-checkbox"
             />Horror</label
@@ -116,7 +115,6 @@
             ><input
                     name="prefer"
                     id="mystery"
-                    value="open-source-community"
                     type="checkbox"
                     class="input-checkbox"
             />Mystery</label
@@ -125,7 +123,6 @@
             ><input
                     name="prefer"
                     id="romance"
-                    value="gitter-help-rooms"
                     type="checkbox"
                     class="input-checkbox"
             />Romance</label
@@ -134,7 +131,6 @@
             ><input
                     name="prefer"
                     id="thriller"
-                    value="videos"
                     type="checkbox"
                     class="input-checkbox"
             />Thriller</label
@@ -143,7 +139,6 @@
             ><input
                     name="prefer"
                     id="scifi"
-                    value="city-meetups"
                     type="checkbox"
                     class="input-checkbox"
             />Sci-Fi</label
@@ -152,7 +147,6 @@
             ><input
                     name="prefer"
                     id="western"
-                    value="wiki"
                     type="checkbox"
                     class="input-checkbox"
             />Western</label
@@ -161,7 +155,6 @@
             ><input
                     name="prefer"
                     id="history"
-                    value="forum"
                     type="checkbox"
                     class="input-checkbox"
             />History</label
@@ -170,11 +163,10 @@
             ><input
                     name="prefer"
                     id="crime"
-                    value="additional-courses"
                     type="checkbox"
                     class="input-checkbox"
-            />Crime</label
-            >
+            />Crime</label>
+            </div>
             <div class="form-group">
             <p>Rate this movie</p>
             <fieldset class="rating">
@@ -204,6 +196,7 @@
             <button type="submit" id="submit" class="submit-button">
                 Submit
             </button>
+        </div>
         </div>
     </form>
     <div class="form-group">
