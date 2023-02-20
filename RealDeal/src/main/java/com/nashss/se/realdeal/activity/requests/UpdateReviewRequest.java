@@ -9,7 +9,8 @@ public class UpdateReviewRequest {
 
     private final double rating;
 
-    public UpdateReviewRequest(String text, double rating) {
+    public UpdateReviewRequest(String id, String text, double rating) {
+        this.id = id;
         this.text = text;
         this.rating = rating;
     }
@@ -72,6 +73,6 @@ public class UpdateReviewRequest {
 }
 
     public UpdateReviewRequest build() {
-        return new UpdateReviewRequest(text,rating);
+        return new UpdateReviewRequest(id, text,rating);
     }
 }
