@@ -2,7 +2,6 @@ package com.nashss.se.realdeal.activity.requests;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import com.nashss.se.realdeal.models.ReviewsModel;
 
 @JsonDeserialize(builder = CreateReviewRequest.Builder.class)
 public class CreateReviewRequest {

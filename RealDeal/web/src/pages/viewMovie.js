@@ -6,7 +6,7 @@ class ViewMovie extends BindingClass {
 
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'mount', 'displayMovie', 'displayReviews'], this);
+        this.bindClassMethods(['clientLoaded', 'mount', 'displayMovie', 'displayReviews','deleteReview'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.displayMovie);
         this.dataStore.addChangeListener(this.displayReviews);
@@ -79,10 +79,26 @@ class ViewMovie extends BindingClass {
     let reviewContainer = document.getElementById('review-container');
     let reviewText = '';
     for (let singleReview of movieReviews) {
-        reviewText += '<h3>Review By: '+singleReview.username+'</h3><h2>'+singleReview.rating+'</h2><p>'+singleReview.text+'</p>'
+        reviewText += '<h3>Review By: '+singleReview.username+'</h3><h2>'+singleReview.rating+'</h2><p>'+singleReview.text+'</p>';
+        const identity = await this.client.getIdentity();
+        if (singleReview.username === identity.email) {
+            reviewText += '<button class="delete-btn" id="'+singleReview.id+'">Delete</button>';
+        }
+        reviewContainer.innerHTML = reviewText;
+       const deleteBtn = document.querySelector('.delete-btn');
+        if (deleteBtn) {
+            deleteBtn.addEventListener('click',
+            this.deleteReview);
+       }
     }
-    reviewContainer.innerHTML = reviewText;
     }
+
+    async deleteReview(event) {
+        console.log(event);
+        await this.client.deleteReview(event.target.id);
+        location.reload();
+    }
+
 }
  const main = async () => {
         const viewMovie = new ViewMovie();

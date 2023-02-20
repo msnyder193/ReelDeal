@@ -4,6 +4,7 @@ import javax.inject.Singleton;
 
 import com.nashss.se.realdeal.activity.CreateMovieActivity;
 import com.nashss.se.realdeal.activity.CreateReviewActivity;
+import com.nashss.se.realdeal.activity.DeleteReviewActivity;
 import com.nashss.se.realdeal.activity.GetAllMovieReviewsActivity;
 import com.nashss.se.realdeal.activity.GetAllMoviesActivity;
 import com.nashss.se.realdeal.activity.GetMovieActivity;
@@ -60,4 +61,10 @@ public interface ServiceComponent {
      * @return CreateReviewActivity
      */
     CreateReviewActivity provideCreateReviewActivity();
+
+    /**
+     *
+     * @return DeleteReviewActivity
+     */
+    DeleteReviewActivity provideDeleteReviewActivity();
 }

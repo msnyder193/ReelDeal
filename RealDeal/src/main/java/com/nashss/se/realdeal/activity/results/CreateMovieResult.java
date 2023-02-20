@@ -3,20 +3,21 @@ package com.nashss.se.realdeal.activity.results;
 import com.nashss.se.realdeal.models.MoviesModel;
 
 public class CreateMovieResult {
-    private final MoviesModel moviesModel;
+    private final MoviesModel movie;
 
     private CreateMovieResult(MoviesModel moviesModel) {
-        this.moviesModel = moviesModel;
+        this.movie = moviesModel;
     }
+    
 
     public MoviesModel getMoviesModel() {
-        return moviesModel;
+        return movie;
     }
 
     @Override
     public String toString() {
         return "CreateMovieResult{" +
-            "moviesModel=" + moviesModel +
+            "moviesModel=" + movie +
             '}';
     }
 

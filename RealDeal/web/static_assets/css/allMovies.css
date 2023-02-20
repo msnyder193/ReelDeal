@@ -1,0 +1,20 @@
+.movie-container {
+  padding-top: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  width: 20%;
+  text-align: center;
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}

@@ -38,9 +38,14 @@ class CreateMovie extends BindingClass {
         alert("please fill in all required fields");
         return;
     }
-    await this.client.createMovie(title, description, releaseDate, posterUrl, genres, cast, director);
-    await this.client.createReview(text, rating);
 
+
+    const singleMovie = await this.client.createMovie(title, description, releaseDate, posterUrl, genres, cast, director);
+    this.dataStore.set('singleMovie', singleMovie);
+    const movie = this.dataStore.get('singleMovie')
+    if(movie) {
+        await this.client.createReview(text, rating, movie.id);
+    }
     }
 
     getCheckBoxValue() {
