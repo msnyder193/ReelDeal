@@ -2,8 +2,6 @@ package com.nashss.se.realdeal.models;
 
 import java.util.Objects;
 
-import com.nashss.se.realdeal.dynamodb.models.Reviews;
-
 public class ReviewsModel {
     private final String id;
     private final String movieId;

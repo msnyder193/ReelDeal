@@ -16,7 +16,7 @@ export default class ReelDealClient extends BindingClass {
         super();
 
         const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout', 'createMovie',
-         'createReview', 'getAllMovies', 'getAllMovieReviews', 'getMovie', 'getReview', 'updateMovie'];
+         'createReview', 'getAllMovies', 'getAllMovieReviews', 'getMovie', 'getReview', 'updateMovie', 'deleteReview', 'updateReview'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -172,6 +172,19 @@ export default class ReelDealClient extends BindingClass {
                 this.handleError(error, errorCallback)
             }
         }
+
+
+     async updateReview(text, rating, errorCallback) {
+             try {
+                 const response = await this.client.put(`reviews/${reviews.id}`, {
+                    text: text,
+                    rating: rating
+                 });
+                 return response.data.reviews;
+             } catch (error) {
+                 this.handleError(error, errorCallback)
+             }
+         }
     /**
      * Helper method to log the error and run any error functions.
      * @param error The error received from the server.

@@ -1,6 +1,5 @@
 package com.nashss.se.realdeal.activity.requests;
 
-import java.util.List;
 import java.util.Set;
 
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;

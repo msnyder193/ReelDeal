@@ -296,25 +296,45 @@ Resources:
             Auth:
               Authorizer: 'NONE'
 
-    UpdateMovieLambda:
-      Type: AWS::Serverless::Function
-      Properties:
-        Role: !GetAtt AccessDynamoDBTablesRole.Arn
-        CodeUri: RealDeal
-        Handler: com.nashss.se.realdeal.lambda.UpdateMovieLambda::handleRequest
-        Runtime: java11
-        Architectures:
-          - x86_64
-        MemorySize: 512
-        Environment:
-          Variables:
-            JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
-        Events:
-          ReelDeal:
-            Type: Api
-            Properties:
-              Path: /movies/{id}
-              Method: put
+  UpdateMovieLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessDynamoDBTablesRole.Arn
+      CodeUri: RealDeal
+      Handler: com.nashss.se.realdeal.lambda.UpdateMovieLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        ReelDeal:
+          Type: Api
+          Properties:
+            Path: /movies/{id}
+            Method: put
+
+  UpdateReviewLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessDynamoDBTablesRole.Arn
+      CodeUri: RealDeal
+      Handler: com.nashss.se.realdeal.lambda.UpdateReviewLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        ReelDeal:
+          Type: Api
+          Properties:
+            Path: /reviews/{id}
+            Method: put
 
   CreateReviewLambda:
     Type: AWS::Serverless::Function
