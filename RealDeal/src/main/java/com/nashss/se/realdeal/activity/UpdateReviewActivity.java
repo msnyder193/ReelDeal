@@ -10,8 +10,6 @@ import com.nashss.se.realdeal.dynamodb.DAO.ReviewDAO;
 
 import com.nashss.se.realdeal.dynamodb.models.Reviews;
 import com.nashss.se.realdeal.metrics.MetricsPublisher;
-import com.nashss.se.realdeal.models.ReviewsModel;
-import com.nashss.se.realdeal.utils.RealDealServiceLambda;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

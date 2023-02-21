@@ -6,7 +6,7 @@ class ViewMovie extends BindingClass {
 
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'mount', 'displayMovie', 'displayReviews','deleteReview', 'populateUpdateForm', 'showMovieReview', 'submitMovieReview'], this);
+        this.bindClassMethods(['clientLoaded', 'mount', 'displayMovie', 'displayReviews','deleteReview', 'populateUpdateForm', 'showMovieReview', 'submitMovieReview', 'getRating'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.displayMovie);
         this.dataStore.addChangeListener(this.displayReviews);
@@ -83,40 +83,45 @@ class ViewMovie extends BindingClass {
         const identity = await this.client.getIdentity();
         if (singleReview.username === identity.email) {
             reviewText += '<button class="delete-btn" id="'+singleReview.id+'">Delete</button>';
-            reviewText += this.populateUpdateForm();
+            reviewText += this.populateUpdateForm(singleReview.id);
         }
 
 
        reviewContainer.innerHTML = reviewText;
-       const updateBtn = document.getElementById('update-btn');
-       if (updateBtn) {
-           updateBtn.addEventListener('click',
+       const updateBtn = document.querySelectorAll('.update-btn');
+       for (let elementN of updateBtn) {
+           elementN.addEventListener('click',
            this.showMovieReview);
        }
-       const deleteBtn = document.querySelector('.delete-btn');
-        if (deleteBtn) {
-            deleteBtn.addEventListener('click',
-            this.deleteReview);
+       const submit = document.querySelectorAll('.submit-btn')
+       for (let elementN of submit) {
+           elementN.addEventListener('click',
+           this.submitMovieReview);
        }
+       const deleteBtn = document.querySelectorAll('.delete-btn');
+       for (let elementN of deleteBtn) {
+            elementN.addEventListener('click',
+            this.deleteReview);
+        }
     }
     }
 
     async deleteReview(event) {
-        console.log(event);
         await this.client.deleteReview(event.target.id);
         location.reload();
     }
 
-    populateUpdateForm() {
+    populateUpdateForm(id) {
         // Create the "Write a review" button
         const button = document.createElement("button");
-        button.setAttribute("id", "update-btn");
+        button.setAttribute("class", "update-btn")
+        button.setAttribute("id", `update-btn${id}`);
         button.textContent = "Update Review";
         button.onclick = this.showMovieReview;
 
         // Create the movie review popup
         const popup = document.createElement("div");
-        popup.setAttribute("id", "popup")
+        popup.setAttribute("id", `popup${id}`);
         popup.style.display = "none";
         popup.style.position = "absolute";
         popup.style.top = "50%";
@@ -135,7 +140,7 @@ class ViewMovie extends BindingClass {
 
         // Add the review text area to the popup
         const reviewText = document.createElement("textarea");
-        reviewText.setAttribute("id", "review-text");
+        reviewText.setAttribute("id", `reviewText${id}`);
         reviewText.style.width = "100%";
         reviewText.style.height = "100px";
         popup.appendChild(reviewText);
@@ -158,6 +163,8 @@ class ViewMovie extends BindingClass {
 
         // Add the submit button to the popup
         const submitButton = document.createElement("button");
+        submitButton.setAttribute("id", `submitButton${id}`);
+        submitButton.setAttribute("class", "submit-btn");
         submitButton.textContent = "Submit";
         submitButton.onclick = this.submitMovieReview;
         popup.appendChild(submitButton);
@@ -166,24 +173,46 @@ class ViewMovie extends BindingClass {
     }
 
         // Show the movie review popup
-    async showMovieReview() {
-      const popup = document.getElementById("popup");
+    async showMovieReview(event) {
+    console.log(event);
+      const id = event.target.id.slice(-1);
+      console.log(id);
+      const popup = document.getElementById(`popup${id}`);
       popup.style.display = "block";
     }
 
         // Submit the movie review
-    async submitMovieReview(id) {
-      const popup = document.getElementById("popup");
+    async submitMovieReview(event) {
+      const id = event.target.id.slice(-1);
+      const popup = document.getElementById(`popup${id}`);
       // Get the review text
-      const review = getElementById("text-area").value;
+      const review = document.getElementById(`reviewText${id}`).value;
       // Get the rating value
-      const rating = document.querySelector('input[name="rating"]:checked').value;
+      const rating = this.getRating();
+      //get id from event parent node
       // Do something with the review and rating (e.g. send it to a server)
       console.log("Review text:", review);
       console.log("Rating:", rating);
       // Close the popup
-      await this.client.updateReview(id, review, rating);
+      await this.client.updateReview(id , review, rating);
       popup.style.display = "none";
+      location.reload();
+    }
+
+    getRating() {
+        var rating = document.getElementsByName("rating");
+        var res = 0;
+        if (rating.length == 0) {
+        return;
+        }
+        for (var rate of rating) {
+            if (rate.checked) {
+                if(parseInt(rate.value) > res) {
+                    res = parseFloat(rate.value);
+                }
+            }
+        }
+        return res;
     }
 }
 

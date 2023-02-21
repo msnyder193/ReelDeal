@@ -1,7 +1,8 @@
 package com.nashss.se.realdeal.activity.requests;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-
+@JsonDeserialize(builder = UpdateReviewRequest.Builder.class)
 public class UpdateReviewRequest {
     private String id;
 
@@ -70,9 +71,8 @@ public class UpdateReviewRequest {
             return this;
         }
 
-}
-
-    public UpdateReviewRequest build() {
-        return new UpdateReviewRequest(id, text,rating);
+        public UpdateReviewRequest build() {
+            return new UpdateReviewRequest(id, text, rating);
+        }
     }
 }

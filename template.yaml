@@ -333,7 +333,7 @@ Resources:
         ReelDeal:
           Type: Api
           Properties:
-            Path: /reviews/{id}
+            Path: /reviews
             Method: put
 
   CreateReviewLambda:

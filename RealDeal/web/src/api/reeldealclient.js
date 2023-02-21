@@ -174,9 +174,10 @@ export default class ReelDealClient extends BindingClass {
         }
 
 
-     async updateReview(text, rating, errorCallback) {
+     async updateReview(id, text, rating, errorCallback) {
              try {
-                 const response = await this.client.put(`reviews/${reviews.id}`, {
+                 const response = await this.axiosClient.put(`reviews`, {
+                    id: id,
                     text: text,
                     rating: rating
                  });
