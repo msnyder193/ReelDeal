@@ -18,7 +18,7 @@
         "Item": {
           "id": {"S": "movie2"},
           "title" : {"S": "The Godfather"},
-          "posterUrl" : {"S": "/images/godfather.png"},
+          "posterUrl" : {"S": "https://imgur.com/ZsWsvbF"},
           "releaseDate": {"S": "1972"},
           "director": {"S": "Francis Ford Coppola"},
           "cast": {"SS": [ "Marlon Brando", "Al Pacino",  "James Caan"] },

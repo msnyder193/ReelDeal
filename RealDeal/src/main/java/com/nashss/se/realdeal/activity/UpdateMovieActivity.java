@@ -56,7 +56,7 @@ public class UpdateMovieActivity {
         movie.setCast(request.getCast());
 
         return UpdateMovieResult.builder()
-            .withMovie(new ModelConverter().toMoviesModel(movie))
+            .withMovie(ModelConverter.toMoviesModel(movie))
             .build();
     }
 }

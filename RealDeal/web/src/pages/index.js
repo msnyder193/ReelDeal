@@ -27,9 +27,7 @@ class Index extends BindingClass {
      add.addEventListener('click', () => {
      window.location.href = 'createMovie.html'
      });
-     console.log("in the method");
         const moviesList = this.dataStore.get('moviesList');
-        console.log("before movies" + moviesList);
         if (!moviesList) {
             return;
         }

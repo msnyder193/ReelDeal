@@ -29,6 +29,7 @@ public class ReviewsModel {
         this.rating = rating;
         this.movieDate = movieDate;
     }
+
     public String getMovieDate() {
         return movieDate;
     }

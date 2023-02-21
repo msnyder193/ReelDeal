@@ -37,7 +37,12 @@ public class ReviewDAO {
 
     public void saveReview(Reviews review) {
         this.mapper.save(review);
-    } 
+    }
+
+    public void deleteReview(Reviews review) {
+        review.setUsername(review.getUsername());
+        this.mapper.delete(review);
+    }
     
     public List<Reviews> getAllReviewsForMovie(String movieId) {
         Map<String, AttributeValue> valueMap = new HashMap<>();

@@ -16,7 +16,7 @@ export default class ReelDealClient extends BindingClass {
         super();
 
         const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout', 'createMovie',
-         'createReview', 'getAllMovies', 'getAllMovieReviews', 'getMovie', 'getReview', 'updateMovie'];
+         'createReview', 'getAllMovies', 'getAllMovieReviews', 'getMovie', 'getReview', 'updateMovie', 'deleteReview', 'updateReview'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -122,18 +122,41 @@ export default class ReelDealClient extends BindingClass {
                 cast: cast,
                 director: director
             });
-            return response.data.movies;
+            console.log("movie response", response.data);
+            return response.data.moviesModel;
         } catch (error) {
             this.handleError(error, errorCallback)
         }
     }
 
+    async deleteReview(id, errorCallback) {
+        try {
+            const token = await this.getTokenOrThrow("Only authenticated users can delete reviews.")
+            const response = await this.axiosClient.delete(`reviews/${id}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            return response.data.reviews;
+        } catch (error) {
+//            window.alert("You must be the owner to delete this review. Redirecting ..");
+//            window.location.href = `/viewMovie.html`;
+            this.handleError(error, errorCallback)
+        }
+    }
 
-    async createReview(text,rating, errorCallback) {
+    async createReview(text,rating, movieId, errorCallback) {
          try {
+             const token = await this.getTokenOrThrow("cant do if no log in");
              const response = await this.axiosClient.post(`reviews`, {
                 text: text,
-                rating: rating
+                rating: rating,
+                movieId: movieId
+             }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
              });
              return response.data.reviews;
          } catch (error) {
@@ -149,6 +172,20 @@ export default class ReelDealClient extends BindingClass {
                 this.handleError(error, errorCallback)
             }
         }
+
+
+     async updateReview(id, text, rating, errorCallback) {
+             try {
+                 const response = await this.axiosClient.put(`reviews`, {
+                    id: id,
+                    text: text,
+                    rating: rating
+                 });
+                 return response.data.reviews;
+             } catch (error) {
+                 this.handleError(error, errorCallback)
+             }
+         }
     /**
      * Helper method to log the error and run any error functions.
      * @param error The error received from the server.

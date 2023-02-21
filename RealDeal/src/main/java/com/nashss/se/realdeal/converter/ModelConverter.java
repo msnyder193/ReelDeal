@@ -8,7 +8,7 @@ import com.nashss.se.realdeal.models.ReviewsModel;
 import com.nashss.se.realdeal.models.UsersModel;
 
 public class ModelConverter {
-    public MoviesModel toMoviesModel(Movies movies) {
+    public static MoviesModel toMoviesModel(Movies movies) {
         return MoviesModel.builder()
                 .withCast(movies.getCast())
                 .withDescription(movies.getDescription())
@@ -21,7 +21,7 @@ public class ModelConverter {
                 .build();
     }
 
-    public ReviewsModel toReviewsModel(Reviews reviews) {
+    public static ReviewsModel toReviewsModel(Reviews reviews) {
         return ReviewsModel.builder()
                 .withId(reviews.getId())
                 .withMovieId(reviews.getMovieId())
@@ -32,7 +32,7 @@ public class ModelConverter {
                 .build();
     }
 
-    public UsersModel toUsersModel(Users users) {
+    public static UsersModel toUsersModel(Users users) {
         return UsersModel.builder()
                 .withUsername(users.getUsername())
                 .withPassword(users.getPassword())
