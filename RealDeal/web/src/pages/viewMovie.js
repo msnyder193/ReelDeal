@@ -239,8 +239,8 @@ class ViewMovie extends BindingClass {
 
         // Show the movie review popup
     async showMovieReview(event) {
-    console.log(event);
-      const id = event.target.id.slice(-1);
+    console.log(event.target.id);
+      const id = event.target.id.substr(10);
       console.log(id);
       const popup = document.getElementById(`popup${id}`);
       popup.style.display = "block";
@@ -253,7 +253,9 @@ class ViewMovie extends BindingClass {
 
         // Submit the movie review
     async submitMovieReview(event) {
-      const id = event.target.id.slice(-1);
+      console.log(event.target.id);
+      const id = event.target.id.substr(12);
+      console.log(id);
       const popup = document.getElementById(`popup${id}`);
       // Get the review text
       const review = document.getElementById(`reviewText${id}`).value;

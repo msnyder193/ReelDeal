@@ -52,6 +52,7 @@ class CreateMovie extends BindingClass {
         submit.disabled = true;
         submit.textContent = 'Saving...';
         submit.style.background = 'grey';
+        window.location.href = 'viewMovie.html?movieId=' + movie.id;
     }
     }
 
@@ -119,7 +120,7 @@ class CreateMovie extends BindingClass {
         }
 
         getRating() {
-            var rating = document.getElementsByName("rating");
+            var rating = document.getElementsByName("rate");
             var res = 0;
             if (rating.length == 0) {
             return;

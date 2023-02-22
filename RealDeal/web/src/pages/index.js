@@ -34,7 +34,6 @@ class Index extends BindingClass {
 
         let container = document.getElementById('movie-container');
         for (let i = 0; i < 4; i++) {
-        console.log("movie list: " + moviesList[0].posterUrl);
         let movieUrl= '<img src=' + moviesList[i].posterUrl + ' alt="Movie 1"><h2>'+ moviesList[i].title +'</h2>'
         let button = document.createElement("div");
         button.innerHTML = movieUrl;
