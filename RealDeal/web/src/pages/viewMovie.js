@@ -116,7 +116,9 @@ class ViewMovie extends BindingClass {
     async deleteReview(event) {
         confirm('Are you sure you want to delete');
         await this.client.deleteReview(event.target.id);
-        location.reload();
+        const movieId = this.dataStore.get('movieId');
+        const reviewsModelList = await this.client.getAllMovieReviews(movieId);
+        this.dataStore.set('reviewsModelList', reviewsModelList);
     }
 
     populateUpdateForm(id) {
@@ -254,9 +256,7 @@ class ViewMovie extends BindingClass {
 
         // Submit the movie review
     async submitMovieReview(event) {
-      console.log(event.target.id);
       const id = event.target.id.substr(12);
-      console.log(id);
       const popup = document.getElementById(`popup${id}`);
       // Get the review text
       const review = document.getElementById(`reviewText${id}`).value;
@@ -269,7 +269,10 @@ class ViewMovie extends BindingClass {
       // Close the popup
       await this.client.updateReview(id , review, rating);
       popup.style.display = "none";
-      location.reload();
+      const movieId = this.dataStore.get('movieId');
+      const reviewsModelList = await this.client.getAllMovieReviews(movieId);
+      this.dataStore.set('reviewsModelList', reviewsModelList);
+
     }
 
     async addMovieReview() {
@@ -286,7 +289,8 @@ class ViewMovie extends BindingClass {
       // Close the popup
       await this.client.createReview(review, rating, movieId);
       popup.style.display = "none";
-      location.reload();
+      const reviewsModelList = await this.client.getAllMovieReviews(movieId);
+      this.dataStore.set('reviewsModelList', reviewsModelList);
     }
 
     getRating() {
