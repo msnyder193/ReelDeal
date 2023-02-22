@@ -114,6 +114,7 @@ class ViewMovie extends BindingClass {
     }
 
     async deleteReview(event) {
+        confirm('Are you sure you want to delete');
         await this.client.deleteReview(event.target.id);
         location.reload();
     }
