@@ -110,8 +110,7 @@ export default class ReelDealClient extends BindingClass {
             }
         }
 
-    async createMovie(title, description, releaseDate, posterUrl,
-    genres, cast, director, errorCallback) {
+    async createMovie(title, description, releaseDate, posterUrl, genres, cast, director, errorCallback) {
         try {
             const response = await this.axiosClient.post(`movies`, {
                 title: title,
@@ -122,7 +121,6 @@ export default class ReelDealClient extends BindingClass {
                 cast: cast,
                 director: director
             });
-            console.log("movie response", response.data);
             return response.data.moviesModel;
         } catch (error) {
             this.handleError(error, errorCallback)

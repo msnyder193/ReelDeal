@@ -39,12 +39,20 @@ class CreateMovie extends BindingClass {
         return;
     }
 
+    console.log(title, description, releaseDate, posterUrl, director, cast, genres);
+    console.log(text, rating, submit);
+
 
     const singleMovie = await this.client.createMovie(title, description, releaseDate, posterUrl, genres, cast, director);
+    submit.disabled = true;
+    submit.textContent = 'Saving...';
+    submit.style.background = 'grey';
     this.dataStore.set('singleMovie', singleMovie);
     const movie = this.dataStore.get('singleMovie')
     if(movie) {
         await this.client.createReview(text, rating, movie.id);
+
+        window.location.href = 'viewMovie.html?movieId=' + movie.id;
     }
     }
 
@@ -112,7 +120,7 @@ class CreateMovie extends BindingClass {
         }
 
         getRating() {
-            var rating = document.getElementsByName("rating");
+            var rating = document.getElementsByName("rate");
             var res = 0;
             if (rating.length == 0) {
             return;

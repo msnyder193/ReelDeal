@@ -335,6 +335,8 @@ Resources:
           Properties:
             Path: /reviews
             Method: put
+            Auth:
+              Authorizer: 'NONE'
 
   CreateReviewLambda:
     Type: AWS::Serverless::Function
@@ -375,6 +377,8 @@ Resources:
           Properties:
             Path: /movies
             Method: post
+            Auth:
+              Authorizer: 'NONE'
 
   GetReviewLambda:
     Type: AWS::Serverless::Function

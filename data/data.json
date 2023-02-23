@@ -18,7 +18,7 @@
         "Item": {
           "id": {"S": "movie2"},
           "title" : {"S": "The Godfather"},
-          "posterUrl" : {"S": "https://imgur.com/ZsWsvbF"},
+          "posterUrl" : {"S": "/images/godfather.png"},
           "releaseDate": {"S": "1972"},
           "director": {"S": "Francis Ford Coppola"},
           "cast": {"SS": [ "Marlon Brando", "Al Pacino",  "James Caan"] },
@@ -60,6 +60,54 @@
           "id": {"S": "1"},
           "username": {"S": "user1"},
           "movieId": {"S": "movie1"},
+          "rating": { "N": "4.0"},
+          "text": {"S": "great movie, highly recommend it!"},
+          "movieDate": {"S": "2022-12-01"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": {"S": "5"},
+          "username": {"S": "msnyder193@gmail.com"},
+          "movieId": {"S": "movie1"},
+          "rating": { "N": "4.0"},
+          "text": {"S": "cant get over this movie"},
+          "movieDate": {"S": "2022-12-01"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": {"S": "6"},
+          "username": {"S": "msnyder193@gmail.com"},
+          "movieId": {"S": "movie2"},
+          "rating": { "N": "4.0"},
+          "text": {"S": "great movie, highly recommend it!"},
+          "movieDate": {"S": "2022-12-01"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": {"S": "7"},
+          "username": {"S": "msnyder193@gmail.com"},
+          "movieId": {"S": "movie3"},
+          "rating": { "N": "4.0"},
+          "text": {"S": "great movie, highly recommend it!"},
+          "movieDate": {"S": "2022-12-01"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": {"S": "9"},
+          "username": {"S": "msnyder193@gmail.com"},
+          "movieId": {"S": "movie4"},
           "rating": { "N": "4.0"},
           "text": {"S": "great movie, highly recommend it!"},
           "movieDate": {"S": "2022-12-01"}

@@ -26,6 +26,7 @@ module.exports = {
     createMovie: path.resolve(__dirname, 'src', 'pages', 'createMovie.js'),
     index: path.resolve(__dirname, 'src', 'pages', 'index.js'),
     viewMovie: path.resolve(__dirname, 'src', 'pages', 'viewMovie.js'),
+    allMovies: path.resolve(__dirname, 'src', 'pages', 'allMovies.js'),
   },
   output: {
     path: path.resolve(__dirname, 'build', 'assets'),
