@@ -44,14 +44,14 @@ class CreateMovie extends BindingClass {
 
 
     const singleMovie = await this.client.createMovie(title, description, releaseDate, posterUrl, genres, cast, director);
+    submit.disabled = true;
+    submit.textContent = 'Saving...';
+    submit.style.background = 'grey';
     this.dataStore.set('singleMovie', singleMovie);
     const movie = this.dataStore.get('singleMovie')
     if(movie) {
         await this.client.createReview(text, rating, movie.id);
-        const submit = document.getElementById('submit');
-        submit.disabled = true;
-        submit.textContent = 'Saving...';
-        submit.style.background = 'grey';
+
         window.location.href = 'viewMovie.html?movieId=' + movie.id;
     }
     }
