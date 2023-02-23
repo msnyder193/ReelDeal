@@ -8,6 +8,7 @@ import com.nashss.se.realdeal.exception.ReviewNotFoundException;
 
 import javax.inject.Inject;
 
+
 public class GetMovieActivity {
     private final MoviesDAO moviesDAO;
 

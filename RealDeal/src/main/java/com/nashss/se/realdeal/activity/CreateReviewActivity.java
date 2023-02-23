@@ -2,7 +2,6 @@ package com.nashss.se.realdeal.activity;
 
 import javax.inject.Inject;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 import com.nashss.se.realdeal.activity.requests.CreateReviewRequest;
